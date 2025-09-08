@@ -234,7 +234,7 @@ export default function ServicesPage() {
                     <h3 className="text-xl font-semibold">Technologies</h3>
                     <div className="flex flex-wrap gap-2">
                       {service.technologies.map((tech, idx) => (
-                        <Badge key={idx} variant="secondary" className="bg-muted">
+                        <Badge key={idx} variant="secondary" className="bg-muted text-primary">
                           {tech}
                         </Badge>
                       ))}
