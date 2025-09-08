@@ -91,7 +91,7 @@ export default function AboutPage() {
 
   const teamMembers = [
     {
-      name: "Alex Chen",
+      name: "Alex Chenn",
       role: "CEO & Co-Founder",
       bio: "Former tech lead at Fortune 500 companies with 12+ years of experience in software architecture and team leadership.",
       image: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=800&q=80",
