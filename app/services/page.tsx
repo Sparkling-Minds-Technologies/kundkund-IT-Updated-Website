@@ -14,6 +14,8 @@ import {
   Users,
   Code,
   Layers,
+  Package,
+  Building2,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -30,11 +32,11 @@ export default function ServicesPage() {
     {
       id: "ai",
       icon: Brain,
-      title: "AI & Machine Learning",
+      title: "AI/ML",
       subtitle: "Intelligent Solutions for Modern Challenges",
       description:
-        "Harness the power of artificial intelligence to automate processes, gain insights from data, and create intelligent applications that adapt and learn.",
-      image: "/placeholder.svg?key=ai-ml",
+        "We build intelligent systems that learn, adapt, and deliver. AI/ML solutions made for real business impact.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80",
       features: [
         "Custom AI Model Development",
         "Natural Language Processing",
@@ -57,8 +59,8 @@ export default function ServicesPage() {
       title: "Web Development",
       subtitle: "Modern, Scalable Web Applications",
       description:
-        "Build responsive, high-performance web applications using cutting-edge technologies that deliver exceptional user experiences across all devices.",
-      image: "/placeholder.svg?key=web-dev",
+        "Smart web development for modern Businesses. Fast, functional and future-ready.",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
       features: [
         "React & Next.js Development",
         "Progressive Web Apps (PWAs)",
@@ -78,11 +80,11 @@ export default function ServicesPage() {
     {
       id: "mobile",
       icon: Smartphone,
-      title: "Mobile Applications",
+      title: "Mobile App Development",
       subtitle: "Native & Cross-Platform Mobile Solutions",
       description:
-        "Create engaging mobile experiences with native iOS and Android apps, or cross-platform solutions that reach users wherever they are.",
-      image: "/placeholder.svg?key=mobile-dev",
+        "Apps that deliver more than just clicks. Smooth, smart, and ready for growth.",
+      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=80",
       features: [
         "Native iOS & Android Development",
         "Cross-Platform Solutions",
@@ -99,78 +101,79 @@ export default function ServicesPage() {
         "Social networking and community apps",
       ],
     },
-    {
-      id: "cloud",
-      icon: Cloud,
-      title: "Cloud Solutions",
-      subtitle: "Scalable Infrastructure & DevOps",
-      description:
-        "Leverage cloud technologies to build scalable, reliable, and cost-effective solutions with automated deployment and monitoring.",
-      image: "/placeholder.svg?key=cloud-solutions",
-      features: [
-        "Cloud Architecture Design",
-        "AWS & Azure Implementation",
-        "DevOps & CI/CD Pipelines",
-        "Containerization & Orchestration",
-        "Monitoring & Logging",
-        "Security & Compliance",
-      ],
-      technologies: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform", "Jenkins"],
-      useCases: [
-        "Microservices architecture for enterprise applications",
-        "Auto-scaling web applications",
-        "Data lakes for analytics and reporting",
-        "Disaster recovery and backup solutions",
-      ],
-    },
-    {
-      id: "design",
-      icon: Palette,
-      title: "UI/UX Design",
-      subtitle: "User-Centered Design Excellence",
-      description:
-        "Create intuitive, accessible, and visually appealing interfaces that delight users and drive engagement through research-driven design.",
-      image: "/placeholder.svg?key=ui-ux-design",
-      features: [
-        "User Research & Testing",
-        "Wireframing & Prototyping",
-        "Design Systems & Style Guides",
-        "Accessibility Compliance",
-        "Mobile-First Design",
-        "Conversion Optimization",
-      ],
-      technologies: ["Figma", "Adobe Creative Suite", "Sketch", "InVision", "Principle", "Framer"],
-      useCases: [
-        "Healthcare portals with patient-friendly interfaces",
-        "E-commerce platforms with optimized checkout flows",
-        "Enterprise dashboards with complex data visualization",
-        "Mobile apps with intuitive navigation",
-      ],
-    },
-    {
-      id: "qa",
-      icon: Shield,
-      title: "QA & Testing",
-      subtitle: "Comprehensive Quality Assurance",
-      description:
-        "Ensure your software is reliable, secure, and performs optimally with our comprehensive testing strategies and automation frameworks.",
-      image: "/placeholder.svg?key=qa-testing",
-      features: [
-        "Automated Testing Frameworks",
-        "Performance & Load Testing",
-        "Security Testing & Audits",
-        "Cross-Browser Compatibility",
-        "API Testing",
-        "Continuous Integration Testing",
-      ],
-      technologies: ["Selenium", "Cypress", "Jest", "Playwright", "JMeter", "SonarQube"],
-      useCases: [
-        "Automated regression testing for web applications",
-        "Performance testing for high-traffic platforms",
-        "Security audits for financial applications",
-        "Mobile app testing across devices",
-      ],
-    },
+   {
+  id: "product-dev",
+  icon: Package,
+  title: "Product Development",
+  subtitle: "From Idea to Market-Ready Solutions",
+  description:
+    "Transforming concepts into market-ready products with innovation, speed, and precision.",
+  image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
+  features: [
+    "End-to-End Product Strategy",
+    "MVP Design & Development",
+    "Agile Prototyping",
+    "Scalable Architecture",
+    "Continuous Testing & QA",
+    "Product Lifecycle Management",
+  ],
+  technologies: ["React", "Node.js", "Python", "GraphQL", "Docker", "Kubernetes"],
+  useCases: [
+    "Building MVPs for startups",
+    "IoT-based consumer products",
+    "AI-powered recommendation engines",
+    "E-commerce platforms with custom features",
+  ],
+},
+{
+  id: "enterprise-software",
+  icon: Building2,
+  title: "Enterprise Software",
+  subtitle: "Robust, Scalable, and Secure Business Solutions",
+  description:
+    "Empowering enterprises with software that drives efficiency, innovation, and growth.",
+  image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
+  features: [
+    "Custom ERP & CRM Solutions",
+    "Legacy System Modernization",
+    "Workflow Automation",
+    "Enterprise Data Management",
+    "Cloud Migration & Integration",
+    "Role-Based Access Control",
+  ],
+  technologies: ["Java", "Spring Boot", "C#", ".NET", "Oracle", "Azure", "AWS"],
+  useCases: [
+    "ERP systems for manufacturing",
+    "CRM platforms for sales and marketing",
+    "Supply chain management solutions",
+    "HR & payroll management systems",
+  ],
+},
+{
+  id: "saas-product",
+  icon: Cloud,
+  title: "SaaS Product",
+  subtitle: "Cloud-First, Subscription-Based Digital Solutions",
+  description:
+    "Scalable SaaS solutions that deliver seamless experiences and recurring value.",
+  image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+  features: [
+    "Multi-Tenant Architecture",
+    "Subscription & Billing Integration",
+    "Scalable Cloud Infrastructure",
+    "Analytics & Reporting Dashboards",
+    "Single Sign-On (SSO) & Authentication",
+    "API-First Approach",
+  ],
+  technologies: ["Next.js", "Node.js", "PostgreSQL", "MongoDB", "AWS", "Stripe", "Auth0"],
+  useCases: [
+    "Project management & collaboration tools",
+    "SaaS-based HR & recruitment platforms",
+    "Analytics & BI dashboards",
+    "Customer support and ticketing systems",
+  ],
+},
+
   ]
 
   return (
