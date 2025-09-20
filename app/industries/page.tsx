@@ -468,46 +468,56 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-    {/* Industries Overview */}
+    {/* Industries Overview   need to fix gap */} 
 <section className="py-20">
   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
       {industries.map((industry) => (
         <Card
           key={industry.id}
-          className="group hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col h-auto"
+          className="group hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col h-full"
         >
-          <CardHeader className="text-center">
+          {/* Card Header */}
+          <CardHeader className="text-center pb-4">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
               <industry.icon className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="text-xl break-words">{industry.title}</CardTitle>
+            <CardTitle className="text-xl break-words mb-2">{industry.title}</CardTitle>
             <CardDescription className="break-words">{industry.subtitle}</CardDescription>
           </CardHeader>
 
-          <CardContent className="text-center space-y-4 mt-4">
-            <div className="grid grid-cols-3 gap-4 text-sm w-full">
-              <div className="flex flex-col items-center">
-                <div className="font-bold text-primary">{industry.stats.projects}</div>
-                <div className="text-muted-foreground">Projects</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="font-bold text-primary">{industry.stats.clients}</div>
-                <div className="text-muted-foreground">Clients</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="font-bold text-primary">{industry.stats.satisfaction}</div>
-                <div className="text-muted-foreground">Satisfaction</div>
-              </div>
-            </div>
+          {/* Card Content */}
+        <CardContent className="mt-4">
+  <div className="flex justify-between text-sm w-full px-4">
+    <div className="text-center">
+      <div className="font-bold text-primary text-lg">{industry.stats.projects}</div>
+      <div className="text-muted-foreground">Projects</div>
+    </div>
 
-            <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-              <Link href={`#${industry.id}`} className="flex justify-center items-center">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </CardContent>
+    <div className="text-center">
+      <div className="font-bold text-primary text-lg">{industry.stats.clients}</div>
+      <div className="text-muted-foreground">Clients</div>
+    </div>
+
+    <div className="text-center">
+      <div className="font-bold text-primary text-lg">{industry.stats.satisfaction}</div>
+      <div className="text-muted-foreground">Satisfaction</div>
+    </div>
+  </div>
+
+  <Button
+    asChild
+    variant="outline"
+    size="sm"
+    className="w-full bg-transparent mt-6"
+  >
+    <Link href={`#${industry.id}`} className="flex justify-center items-center">
+      Learn More
+      <ArrowRight className="ml-2 h-4 w-4" />
+    </Link>
+  </Button>
+</CardContent>
+
         </Card>
       ))}
     </div>

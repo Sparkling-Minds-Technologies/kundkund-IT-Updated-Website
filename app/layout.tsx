@@ -9,23 +9,23 @@ import { Footer } from "@/components/footer"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "FreshTech Solutions - Innovative Software Development",
+  title: "KundKund IT - Innovative Software Development",
   description:
     "We build fresh, scalable software solutions. Specializing in AI/ML, web development, mobile apps, and cloud solutions for healthcare, real estate, startups, and enterprises.",
   keywords:
     "software development, AI, machine learning, web development, mobile apps, cloud solutions, healthcare tech, proptech, startup solutions",
-  authors: [{ name: "FreshTech Solutions" }],
-  creator: "FreshTech Solutions",
-  publisher: "FreshTech Solutions",
+  authors: [{ name: "KundKund IT" }],
+  creator: "KundKund IT",
+  publisher: "KundKund IT",
   openGraph: {
-    title: "FreshTech Solutions - Innovative Software Development",
+    title: "KundKund IT - Innovative Software Development",
     description: "We build fresh, scalable software solutions for modern businesses.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FreshTech Solutions - Innovative Software Development",
+    title: "KundKund IT- Innovative Software Development",
     description: "We build fresh, scalable software solutions for modern businesses.",
   },
   robots: {
