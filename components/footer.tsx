@@ -130,7 +130,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-          <p className="text-muted-foreground text-sm">© 2024 FreshTech Solutions. All rights reserved.</p>
+          <p className="text-muted-foreground text-sm">© 2025 KundKund IT. All rights reserved.</p>
           <div className="flex items-center space-x-4">
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
               <Facebook className="h-5 w-5" />

@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone } from "lucide-react"
+import Image from "next/image"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -22,12 +23,17 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">K</span>
-            </div>
-            <span className="font-bold text-xl text-foreground"> KundKund IT</span>
-          </Link>
+    <Link href="/" className="flex items-center space-x-2">
+  <div className="relative h-20 w-42"> {/* Adjust width according to logo ratio */}
+    <Image
+      src="/kundkund-IT-Logos-1.png"
+      alt="Kundkund IT Logo"
+      fill
+      style={{ objectFit: "contain" }}
+    />
+  </div>
+</Link>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

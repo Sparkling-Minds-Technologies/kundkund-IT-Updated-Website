@@ -5,7 +5,7 @@ import {
   Heart,
   Building2,
   Rocket,
-  Building,
+  BookOpen,
   ArrowRight,
   CheckCircle,
   Shield,
@@ -13,6 +13,9 @@ import {
   Zap,
   Target,
   Award,
+   Factory,
+    Truck,
+    CreditCard,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -171,51 +174,276 @@ export default function IndustriesPage() {
       },
     },
     {
-      id: "enterprises",
-      icon: Building,
-      title: "Enterprises",
-      subtitle: "Digital Transformation & Legacy Modernization",
+  id: "manufacturing",
+  icon: Factory,
+  title: "Manufacturing",
+  subtitle: "Smart Production & Industry 4.0",
+  description:
+    "Transform your manufacturing operations with intelligent automation, optimized workflows, and advanced Industry 4.0 solutions.",
+  image: "/manufacturing.png",
+  stats: {
+    projects: "50+",
+    clients: "40",
+    satisfaction: "98%",
+  },
+  solutions: [
+    {
+      title: "Process Automation",
       description:
-        "Modernize enterprise operations with scalable solutions, legacy system integration, and digital transformation strategies.",
-      image: "/enterprise-software-and-corporate-technology-solut.jpg",
-      stats: {
-        projects: "10+",
-        clients: "8",
-        satisfaction: "100%",
-      },
-      solutions: [
-        {
-          title: "Legacy System Modernization",
-          description: "Upgrade outdated systems with modern technologies while maintaining business continuity.",
-        },
-        {
-          title: "Enterprise Integration",
-          description: "Connect disparate systems and create unified data flows across your organization.",
-        },
-        {
-          title: "Digital Transformation",
-          description: "Comprehensive strategy and implementation for digital business transformation initiatives.",
-        },
-        {
-          title: "Custom Enterprise Applications",
-          description: "Tailored software solutions designed for complex enterprise requirements and workflows.",
-        },
-      ],
-      features: [
-        "Enterprise Security",
-        "Scalable Architecture",
-        "System Integration",
-        "Compliance Management",
-        "Performance Optimization",
-        "24/7 Support",
-      ],
-      caseStudy: {
-        client: "Fortune 500 Manufacturing",
-        challenge: "Replace 20-year-old inventory management system affecting operational efficiency.",
-        solution: "Developed modern cloud-based inventory system with real-time analytics and mobile access.",
-        results: "50% improvement in inventory accuracy, 30% reduction in operational costs.",
-      },
+        "Implement smart automation systems to streamline production lines and reduce manual errors.",
     },
+    {
+      title: "IoT & Industry 4.0 Integration",
+      description:
+        "Integrate sensors, machines, and data analytics for real-time monitoring and predictive maintenance.",
+    },
+    {
+      title: "Supply Chain Optimization",
+      description:
+        "Enhance operational efficiency with data-driven supply chain management and logistics solutions.",
+    },
+    {
+      title: "Custom Manufacturing Software",
+      description:
+        "Develop tailor-made software to manage production schedules, inventory, and quality control.",
+    },
+  ],
+  features: [
+    "Smart Factory Solutions",
+    "Predictive Maintenance",
+    "Energy Optimization",
+    "Quality Assurance Automation",
+    "Real-Time Analytics",
+    "ERP & MES Integration",
+  ],
+  caseStudy: {
+    client: "PrecisionTech Ltd.",
+    challenge:
+      "Needed to reduce downtime and improve efficiency across multiple production lines.",
+    solution:
+      "Implemented IoT sensors, automated reporting dashboards, and predictive maintenance algorithms.",
+    results:
+      "Reduced downtime by 35%, increased production efficiency by 25%, and achieved higher product quality standards.",
+  },
+},
+{
+  id: "logistics",
+  icon: Truck, 
+  title: "Logistics",
+  subtitle: "Efficient Supply Chain & Delivery Solutions",
+  description:
+    "Optimize your logistics operations with smart supply chain management, real-time tracking, and streamlined delivery solutions.",
+  image: "/logistics-services.jpg", 
+  stats: {
+    projects: "40+",
+    clients: "35",
+    satisfaction: "97%",
+  },
+  solutions: [
+    {
+      title: "Supply Chain Optimization",
+      description:
+        "Data-driven strategies to enhance inventory management, reduce costs, and improve delivery timelines.",
+    },
+    {
+      title: "Fleet Management",
+      description:
+        "Smart tracking and route optimization for your fleet to reduce fuel costs and improve efficiency.",
+    },
+    {
+      title: "Real-Time Shipment Tracking",
+      description:
+        "Enable end-to-end visibility of shipments with IoT and GPS integration for timely delivery.",
+    },
+    {
+      title: "Custom Logistics Software",
+      description:
+        "Develop tailor-made solutions for warehouse management, order processing, and transportation.",
+    },
+  ],
+  features: [
+    "Route Optimization",
+    "Inventory Analytics",
+    "Predictive Demand Planning",
+    "Real-Time Tracking",
+    "Automated Reporting",
+    "Integrated ERP Solutions",
+  ],
+  caseStudy: {
+    client: "FastTrack Logistics",
+    challenge:
+      "Needed to improve on-time deliveries and optimize warehouse operations across multiple locations.",
+    solution:
+      "Implemented real-time tracking dashboards, automated warehouse management software, and predictive analytics.",
+    results:
+      "Improved on-time delivery rate by 30%, reduced operational costs by 20%, and increased client satisfaction significantly.",
+  },
+},
+
+{
+  id: "edtech",
+  icon: BookOpen, 
+  title: "EdTech",
+  subtitle: "Innovative Learning & Digital Education",
+  description:
+    "Empower education with interactive learning platforms, AI-driven content, and seamless online learning experiences.",
+  image: "/EdTech.jpg", // Place the image in your public/images folder
+  stats: {
+    projects: "35+",
+    clients: "30",
+    satisfaction: "95%",
+  },
+  solutions: [
+    {
+      title: "E-Learning Platforms",
+      description:
+        "Develop scalable online learning platforms with interactive courses, assessments, and certifications.",
+    },
+    {
+      title: "AI-Powered Learning",
+      description:
+        "Integrate AI-driven personalized learning paths, content recommendations, and performance analytics.",
+    },
+    {
+      title: "Virtual Classrooms",
+      description:
+        "Real-time video classrooms with collaboration tools, quizzes, and student engagement features.",
+    },
+    {
+      title: "Custom EdTech Software",
+      description:
+        "Tailor-made solutions for schools, universities, and training institutes to manage courses, students, and progress tracking.",
+    },
+  ],
+  features: [
+    "Interactive Content",
+    "AI Personalization",
+    "Gamified Learning",
+    "Progress Analytics",
+    "Video & Live Classes",
+    "Cloud-Based Infrastructure",
+  ],
+  caseStudy: {
+    client: "LearnSmart Academy",
+    challenge:
+      "Needed a comprehensive digital learning platform to support 10,000+ students with personalized learning paths.",
+    solution:
+      "Built a cloud-based e-learning platform with AI-driven course recommendations, assessments, and interactive content.",
+    results:
+      "Increased student engagement by 40%, improved course completion rate by 30%, and received excellent feedback from educators and learners.",
+  },
+},
+
+{
+  id: "fintech",
+  icon: CreditCard, 
+  title: "FinTech",
+  subtitle: "Smart Financial Solutions & Digital Banking",
+  description:
+    "Revolutionize financial services with secure digital payments, AI-driven analytics, and innovative banking solutions.",
+  image: "/fintech-1.jpg", 
+  stats: {
+    projects: "45+",
+    clients: "38",
+    satisfaction: "97%",
+  },
+  solutions: [
+    {
+      title: "Digital Payments",
+      description:
+        "Implement secure, scalable, and user-friendly payment systems for web and mobile platforms.",
+    },
+    {
+      title: "AI & Data Analytics",
+      description:
+        "Leverage AI for fraud detection, credit scoring, and personalized financial insights.",
+    },
+    {
+      title: "Mobile Banking Solutions",
+      description:
+        "Develop apps for seamless account management, transactions, and financial planning.",
+    },
+    {
+      title: "Custom FinTech Software",
+      description:
+        "Tailor-made solutions for banks, startups, and financial institutions to streamline operations and enhance customer experience.",
+    },
+  ],
+  features: [
+    "Secure Transactions",
+    "Real-Time Analytics",
+    "Fraud Detection",
+    "AI-Powered Insights",
+    "Regulatory Compliance",
+    "Cloud-Based Banking",
+  ],
+  caseStudy: {
+    client: "SmartBank Solutions",
+    challenge:
+      "Needed to launch a digital banking platform with secure payments and AI-powered customer insights.",
+    solution:
+      "Built a mobile and web banking platform integrated with AI analytics, fraud detection, and real-time reporting.",
+    results:
+      "Launched successfully within 6 months, increased customer retention by 25%, and enhanced transaction security.",
+  },
+},
+
+{
+  id: "tech-startups",
+  icon: Rocket, 
+  title: "Technology Startups",
+  subtitle: "Innovation & Rapid Growth Solutions",
+  description:
+    "Accelerate your technology startup with scalable solutions, innovative products, and growth-focused strategies.",
+  image: "/startuptechnlogy.jpg",
+  stats: {
+    projects: "30+",
+    clients: "25",
+    satisfaction: "96%",
+  },
+  solutions: [
+    {
+      title: "MVP Development",
+      description:
+        "Rapid prototyping and minimum viable product development to validate your business ideas quickly.",
+    },
+    {
+      title: "Scalable Architecture",
+      description:
+        "Cloud-native solutions designed to grow with your startup from MVP to enterprise-level applications.",
+    },
+    {
+      title: "Product Strategy Consulting",
+      description:
+        "Technical guidance and product roadmap development to maximize your chances of success.",
+    },
+    {
+      title: "Funding Pitch Support",
+      description:
+        "Technical documentation, demos, and prototype support to help secure investor funding.",
+    },
+  ],
+  features: [
+    "Agile Development",
+    "Cloud-First Architecture",
+    "Rapid Iteration",
+    "Cost-Effective Solutions",
+    "Technical Mentoring",
+    "Growth Analytics",
+  ],
+  caseStudy: {
+    client: "TechStart Inc.",
+    challenge:
+      "Needed to build and launch an MVP within 3 months to secure Series A funding.",
+    solution:
+      "Developed a full-stack web application with a mobile companion app using modern technologies.",
+    results:
+      "Successfully launched on schedule and secured $2M Series A funding within 6 months.",
+  },
+}
+
+
+    
   ]
 
   return (
@@ -240,46 +468,52 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Industries Overview */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {industries.map((industry) => (
-              <Card key={industry.id} className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                    <industry.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">{industry.title}</CardTitle>
-                  <CardDescription>{industry.subtitle}</CardDescription>
-                </CardHeader>
-                <CardContent className="text-center space-y-4">
-                  <div className="grid grid-cols-3 gap-4 text-sm">
-                    <div>
-                      <div className="font-bold text-primary">{industry.stats.projects}</div>
-                      <div className="text-muted-foreground">Projects</div>
-                    </div>
-                    <div>
-                      <div className="font-bold text-primary">{industry.stats.clients}</div>
-                      <div className="text-muted-foreground">Clients</div>
-                    </div>
-                    <div>
-                      <div className="font-bold text-primary">{industry.stats.satisfaction}</div>
-                      <div className="text-muted-foreground">Satisfaction</div>
-                    </div>
-                  </div>
-                  <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-                    <Link href={`#${industry.id}`}>
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* Industries Overview */}
+<section className="py-20">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+      {industries.map((industry) => (
+        <Card
+          key={industry.id}
+          className="group hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col h-auto"
+        >
+          <CardHeader className="text-center">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+              <industry.icon className="h-8 w-8 text-primary" />
+            </div>
+            <CardTitle className="text-xl break-words">{industry.title}</CardTitle>
+            <CardDescription className="break-words">{industry.subtitle}</CardDescription>
+          </CardHeader>
+
+          <CardContent className="text-center space-y-4 mt-4">
+            <div className="grid grid-cols-3 gap-4 text-sm w-full">
+              <div className="flex flex-col items-center">
+                <div className="font-bold text-primary">{industry.stats.projects}</div>
+                <div className="text-muted-foreground">Projects</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="font-bold text-primary">{industry.stats.clients}</div>
+                <div className="text-muted-foreground">Clients</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="font-bold text-primary">{industry.stats.satisfaction}</div>
+                <div className="text-muted-foreground">Satisfaction</div>
+              </div>
+            </div>
+
+            <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
+              <Link href={`#${industry.id}`} className="flex justify-center items-center">
+                Learn More
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Detailed Industry Sections */}
       <section className="py-20 bg-muted/30">
@@ -395,7 +629,7 @@ export default function IndustriesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Why Choose <span className="text-primary">FreshTech Solutions</span>
+              Why Choose <span className="text-primary">Kundkund IT</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
               Our industry expertise and proven track record make us the ideal partner for your next software

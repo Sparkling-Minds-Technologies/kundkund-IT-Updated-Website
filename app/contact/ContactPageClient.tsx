@@ -52,7 +52,7 @@ export default function ContactPageClient() {
       email: "info@kundkundit.com",
       hours: "Mon - Sat : 8.00-5.00 Sunday : Closed",
       mapEmbed:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.713144056957!2d77.37702181509202!3d28.62618008241765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceff7e5c1693f%3A0x3247e3f9ac50a145!2sExpress%20Builders%2C%20H139%2C%20Sector%2063%2C%20Noida%2C%20Uttar%20Pradesh%20201309!5e0!3m2!1sen!2sin!4v1695216000000!5m2!1sen!2sin",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.123456789012!2d77.37702181509202!3d28.62561808241765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cefd003862401%3A0x871e4638f0e14413!2sKundkund%20Trading%20and%20Consultancy%20Pvt%20Ltd%2C%20FF%2C%20H-166%2C%20Sector-63%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1695216000000!5m2!1sen!2sin",
     },
    
   ]
@@ -62,21 +62,21 @@ export default function ContactPageClient() {
       icon: Phone,
       title: "Call Us",
       description: "Speak directly with our team",
-      value: "+1 (555) 123-4567",
-      action: "tel:+15551234567",
+      value: "+91 73032 28181",
+      action: "+91 73032 28181",
     },
     {
       icon: Mail,
       title: "Email Us",
       description: "Send us a detailed message",
-      value: "hello@freshtech.solutions",
-      action: "mailto:hello@freshtech.solutions",
+      value: "info@kundkundit.com",
+      action: "info@kundkundit.com",
     },
     {
       icon: MessageSquare,
       title: "Live Chat",
       description: "Chat with us in real-time",
-      value: "Available 9 AM - 6 PM PST",
+      value: "Available 8 AM - 5 PM",
       action: "#",
     },
     {
@@ -417,68 +417,73 @@ export default function ContactPageClient() {
         </div>
       </section>
 
-      {/* Office Locations */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Our <span className="text-primary">Locations</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Visit us at one of our offices or connect with us remotely. We're strategically located to serve clients
-              across different time zones.
-            </p>
+   {/* Office Locations */}
+<section className="py-20">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
+        Our <span className="text-primary">Locations</span>
+      </h2>
+      <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+        Visit us at one of our offices or connect with us remotely. We're strategically located to serve clients
+        across different time zones.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
+      {offices.length > 0 && (
+        <Card className="overflow-hidden flex flex-col">
+          {/* Map Section */}
+          <div className="relative h-48 w-full">
+            <iframe
+              src={offices[0].mapEmbed}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={`${offices[0].city} Office Location`}
+            />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {offices.map((office, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="relative h-48">
-                  <iframe
-                    src={office.mapEmbed}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title={`${office.city} Office Location`}
-                  />
-                </div>
-                <CardHeader>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">
-                      {office.type}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-xl">{office.city}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div>
-                    <div className="font-medium text-sm">Address</div>
-                    <div className="text-sm text-muted-foreground">
-                      {office.address}
-                      <br />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-sm">Contact</div>
-                    <div className="text-sm text-muted-foreground">
-                      <div>{office.phone}</div>
-                      <div>{office.email}</div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-sm">Hours</div>
-                    <div className="text-sm text-muted-foreground">{office.hours}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* Card Header */}
+          <CardHeader className="flex-shrink-0">
+            <div className="flex items-center space-x-2 mb-2">
+              <MapPin className="h-5 w-5 text-primary" />
+              <Badge variant="secondary" className="bg-primary/10 text-primary">
+                {offices[0].type}
+              </Badge>
+            </div>
+            <CardTitle className="text-xl">{offices[0].city}</CardTitle>
+          </CardHeader>
+
+          {/* Card Content */}
+          <CardContent className="space-y-3">
+            <div>
+              <div className="font-medium text-sm">Address</div>
+              <div className="text-sm text-muted-foreground">{offices[0].address}</div>
+            </div>
+            <div>
+              <div className="font-medium text-sm">Contact</div>
+              <div className="text-sm text-muted-foreground">
+                <div>{offices[0].phone}</div>
+                <div>{offices[0].email}</div>
+              </div>
+            </div>
+            <div>
+              <div className="font-medium text-sm">Hours</div>
+              <div className="text-sm text-muted-foreground break-words">
+                {offices[0].hours}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  </div>
+</section>
+
 
       {/* FAQ Section */}
       <section className="py-20 bg-muted/30">
