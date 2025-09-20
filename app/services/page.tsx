@@ -186,7 +186,10 @@ export default function ServicesPage() {
               Our Services
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold text-balance">
-              Comprehensive <span className="text-primary">Software Solutions</span>
+              Next-Gen  <span className="text-primary"></span>
+            </h1>
+            <h1 className="text-4xl lg:text-6xl font-bold text-balance">
+              <span className="text-primary">Software Solutions</span>
             </h1>
             <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
               From AI-powered applications to scalable cloud infrastructure, we provide end-to-end software development

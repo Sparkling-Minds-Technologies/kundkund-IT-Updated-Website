@@ -181,14 +181,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                About FreshTech Solutions
+                About KundKund IT
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold text-balance">
-                Building the <span className="text-primary">Future</span> of Software
-              </h1>
+                 <span className="text-primary">AI-Powered Solutions</span> for Modern Enterprises
+              </h1>  
               <p className="text-xl text-muted-foreground text-pretty">
-                Founded in 2019 with a mission to deliver innovative, scalable software solutions that drive business
-                growth. We combine cutting-edge technology with deep industry expertise to transform ideas into reality.
+                At Kundkundit, we’re a passionate tech startup driven by the belief that great software should be accessible, human-centered, and transformative. We collaborate with visionary organizations to create digital solutions that simplify complexity, drive growth, and deliver real impactlity.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90">

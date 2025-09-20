@@ -32,7 +32,7 @@ export default function HomePage() {
                   Innovative Software Solutions
                 </Badge>
                 <h1 className="text-4xl lg:text-6xl font-bold text-balance leading-tight">
-                  Empowering businesses through tailored <span className="text-primary">digital solutions</span>
+                  AI-Powered Solutions for  <span className="text-primary">Modern Enterprises</span>
                 </h1>
                 <p className="text-xl text-muted-foreground text-pretty max-w-2xl">
                   Transform your business with cutting-edge AI, web, and mobile applications. We deliver innovative

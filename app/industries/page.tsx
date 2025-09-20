@@ -228,11 +228,13 @@ export default function IndustriesPage() {
               Industry Expertise
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold text-balance">
-              Specialized Solutions for <span className="text-primary">Every Industry</span>
+              Solutions Designed for <span className="text-primary">Your Industry</span>
+               
             </h1>
             <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
               We understand the unique challenges and requirements of different industries. Our specialized expertise
               ensures solutions that drive real business value.
+              Whether it’s streamlining operations, enhancing customer experiences, or driving digital transformation, our solutions are designed to create measurable impact.
             </p>
           </div>
         </div>

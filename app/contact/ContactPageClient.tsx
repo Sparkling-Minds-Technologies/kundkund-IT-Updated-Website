@@ -45,38 +45,16 @@ export default function ContactPageClient() {
 
   const offices = [
     {
-      city: "San Francisco",
-      type: "Headquarters",
-      address: "123 Tech Street, Innovation District",
-      city_state: "San Francisco, CA 94105",
-      phone: "+1 (555) 123-4567",
-      email: "sf@freshtech.solutions",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM PST",
+      city: "Noida",
+      type: "India office",
+      address: "H-166, Sector 63 Rd, H Block, Noida Uttar Pradesh, 201301",
+      phone: "+91 73032 28181",
+      email: "info@kundkundit.com",
+      hours: "Mon - Sat : 8.00-5.00 Sunday : Closed",
       mapEmbed:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0197!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzI5LjYiTiAxMjLCsDI1JzA5LjgiVw!5e0!3m2!1sen!2sus!4v1234567890",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.713144056957!2d77.37702181509202!3d28.62618008241765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceff7e5c1693f%3A0x3247e3f9ac50a145!2sExpress%20Builders%2C%20H139%2C%20Sector%2063%2C%20Noida%2C%20Uttar%20Pradesh%20201309!5e0!3m2!1sen!2sin!4v1695216000000!5m2!1sen!2sin",
     },
-    {
-      city: "New York",
-      type: "East Coast Office",
-      address: "456 Business Ave, Manhattan",
-      city_state: "New York, NY 10001",
-      phone: "+1 (555) 234-5678",
-      email: "ny@freshtech.solutions",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM EST",
-      mapEmbed:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.0197!2d-73.9857!3d40.7589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzMyLjAiTiA3M8KwNTknMDguNSJX!5e0!3m2!1sen!2sus!4v1234567890",
-    },
-    {
-      city: "Austin",
-      type: "Development Center",
-      address: "789 Startup Blvd, Tech Quarter",
-      city_state: "Austin, TX 78701",
-      phone: "+1 (555) 345-6789",
-      email: "austin@freshtech.solutions",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM CST",
-      mapEmbed:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.0197!2d-97.7431!3d30.2672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDE2JzAyLjAiTiA5N8KwNDQnMzUuMiJX!5e0!3m2!1sen!2sus!4v1234567890",
-    },
+   
   ]
 
   const contactMethods = [
@@ -216,7 +194,7 @@ export default function ContactPageClient() {
                           required
                           value={formData.name}
                           onChange={(e) => handleInputChange("name", e.target.value)}
-                          placeholder="John Doe"
+                          placeholder=""
                         />
                       </div>
                       <div>
@@ -229,7 +207,7 @@ export default function ContactPageClient() {
                           required
                           value={formData.email}
                           onChange={(e) => handleInputChange("email", e.target.value)}
-                          placeholder="john@company.com"
+                          placeholder=""
                         />
                       </div>
                     </div>
@@ -244,7 +222,7 @@ export default function ContactPageClient() {
                           type="text"
                           value={formData.company}
                           onChange={(e) => handleInputChange("company", e.target.value)}
-                          placeholder="Your Company"
+                          placeholder=""
                         />
                       </div>
                       <div>
@@ -256,7 +234,7 @@ export default function ContactPageClient() {
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => handleInputChange("phone", e.target.value)}
-                          placeholder="+1 (555) 123-4567"
+                          placeholder=""
                         />
                       </div>
                     </div>
@@ -311,7 +289,7 @@ export default function ContactPageClient() {
                         rows={5}
                         value={formData.message}
                         onChange={(e) => handleInputChange("message", e.target.value)}
-                        placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
+                        placeholder=""
                       />
                     </div>
 
@@ -362,7 +340,7 @@ export default function ContactPageClient() {
                     </div>
                     <div>
                       <div className="font-medium">Phone</div>
-                      <div className="text-muted-foreground">+1 (555) 123-4567</div>
+                      <div className="text-muted-foreground">+91 73032 28181</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
@@ -371,7 +349,7 @@ export default function ContactPageClient() {
                     </div>
                     <div>
                       <div className="font-medium">Email</div>
-                      <div className="text-muted-foreground">hello@freshtech.solutions</div>
+                      <div className="text-muted-foreground">info@kundkundit.com</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
@@ -380,7 +358,7 @@ export default function ContactPageClient() {
                     </div>
                     <div>
                       <div className="font-medium">Business Hours</div>
-                      <div className="text-muted-foreground">Mon-Fri: 9:00 AM - 6:00 PM PST</div>
+                      <div className="text-muted-foreground">Mon - Sat : 8.00-5.00 Sunday : Closed</div>
                     </div>
                   </div>
                 </div>
@@ -482,7 +460,6 @@ export default function ContactPageClient() {
                     <div className="text-sm text-muted-foreground">
                       {office.address}
                       <br />
-                      {office.city_state}
                     </div>
                   </div>
                   <div>

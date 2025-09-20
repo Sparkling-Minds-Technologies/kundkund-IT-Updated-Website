@@ -38,7 +38,7 @@ export function Footer() {
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">F</span>
               </div>
-              <span className="font-bold text-xl text-foreground">FreshTech Solutions</span>
+              <span className="font-bold text-xl text-foreground">KundKund IT</span>
             </Link>
             <p className="text-muted-foreground mb-4 max-w-md">
               We build fresh, scalable software solutions that drive innovation and growth for businesses across
@@ -47,15 +47,15 @@ export function Footer() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4" />
-                <span>123 Tech Street, Innovation District, CA 94105</span>
+                <span>H-166, Sector 63 Rd, H Block, Noida Uttar Pradesh, 201301</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 73032 28181</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>hello@freshtech.solutions</span>
+                <span>info@kundkundit.com</span>
               </div>
             </div>
           </div>
