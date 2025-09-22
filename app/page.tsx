@@ -20,8 +20,8 @@ import {
   Target,
   Code,
   Server,
-  ChevronDown,
-  Info,
+HelpCircle,
+ChevronDown
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -41,6 +41,7 @@ import {
   SiReactivex,
 } from "react-icons/si";
 
+// FAQ Data
 // FAQ Data
 const faqs = [
   {
@@ -75,6 +76,7 @@ const faqs = [
   },
 ];
 
+// FAQItem Component
 interface FAQItemProps {
   question: string;
   answer: string;
@@ -91,7 +93,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) 
       onClick={onClick}
     >
       <div className="flex items-start gap-4">
-        <Info className="text-primary w-6 h-6 mt-1 flex-shrink-0" />
+        <HelpCircle className="text-primary w-6 h-6 mt-1 flex-shrink-0" />
         <div className="flex-1">
           <div className="flex justify-between items-center">
             <h3 className="text-lg font-semibold text-balance">{question}</h3>
@@ -101,7 +103,6 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) 
               }`}
             />
           </div>
-          {/* Only render content if open */}
           {isOpen && (
             <div className="mt-3 text-muted-foreground text-pretty">
               {answer}
@@ -118,7 +119,7 @@ export default function HomePage() {
    const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index); // Open one at a time
+    setOpenIndex(openIndex === index ? null : index); // Only one open at a time
   };
   return (
     <>
@@ -722,6 +723,7 @@ Don’t just take our word for it—hear directly from our valued clients about 
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Heading */}
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
               Frequently Asked <span className="text-primary">Questions</span>
@@ -731,6 +733,7 @@ Don’t just take our word for it—hear directly from our valued clients about 
             </p>
           </div>
 
+          {/* FAQ Items */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {faqs.map((faq, index) => (
               <FAQItem
@@ -744,7 +747,7 @@ Don’t just take our word for it—hear directly from our valued clients about 
           </div>
         </div>
       </section>
-      <StickyCTA />
+
     </>
   )
 }
