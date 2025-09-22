@@ -1,7 +1,10 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { StickyCTA } from "@/components/sticky-cta"
+"use client"
+
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { StickyCTA } from "@/components/sticky-cta";
 import {
   Brain,
   Globe,
@@ -17,11 +20,106 @@ import {
   Target,
   Code,
   Server,
-} from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+  ChevronDown,
+  Info,
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPython,
+  SiAmazon,
+  SiDocker,
+  SiTypescript,
+  SiPostgresql,
+  SiReactquery,
+  SiTensorflow,
+  SiKubernetes,
+  SiGraphql,
+  SiReactivex,
+} from "react-icons/si";
+
+// FAQ Data
+const faqs = [
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "It depends on the project. For most web apps, you can expect around 8–16 weeks. Mobile apps usually take a bit longer—about 12–20 weeks from the initial idea to launch.",
+  },
+  {
+    question: "Do you provide ongoing support?",
+    answer:
+      "Yes! We don’t just build and leave. Our support covers bug fixes, security updates, performance checks, and even adding new features whenever you need them.",
+  },
+  {
+    question: "What industries do you specialize in?",
+    answer:
+      "We work across healthcare, real estate (PropTech), fintech, e-commerce, and enterprise software. Plus, we’re experienced with HIPAA and SOC2 compliance, so your data stays safe.",
+  },
+  {
+    question: "Can you work with our existing team?",
+    answer:
+      "Absolutely. Whether you need extra hands, a dedicated team, or a mix of both, we adapt to complement your in-house team perfectly.",
+  },
+  {
+    question: "What's your development methodology?",
+    answer:
+      "We follow Agile/Scrum with 2-week sprints, regular demos, and constant feedback. That way, you stay in the loop and we deliver exactly what you need.",
+  },
+  {
+    question: "Do you sign NDAs and ensure IP protection?",
+    answer:
+      "Yes! Your ideas are safe with us. We sign NDAs and make sure all your code and data remain fully secure and yours.",
+  },
+];
+
+interface FAQItemProps {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onClick: () => void;
+}
+
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) => {
+  return (
+    <div
+      className={`bg-white rounded-xl shadow-md p-5 cursor-pointer transition-all duration-300 hover:shadow-xl ${
+        isOpen ? "bg-gradient-to-r from-primary/10 to-primary/20" : ""
+      }`}
+      onClick={onClick}
+    >
+      <div className="flex items-start gap-4">
+        <Info className="text-primary w-6 h-6 mt-1 flex-shrink-0" />
+        <div className="flex-1">
+          <div className="flex justify-between items-center">
+            <h3 className="text-lg font-semibold text-balance">{question}</h3>
+            <ChevronDown
+              className={`text-primary w-5 h-5 transition-transform duration-300 ${
+                isOpen ? "rotate-180" : ""
+              }`}
+            />
+          </div>
+          {/* Only render content if open */}
+          {isOpen && (
+            <div className="mt-3 text-muted-foreground text-pretty">
+              {answer}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 export default function HomePage() {
+   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index); // Open one at a time
+  };
   return (
     <>
       {/* Hero Section */}
@@ -56,7 +154,7 @@ export default function HomePage() {
 
               <div className="flex items-center space-x-8 pt-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">50+</div>
+                  <div className="text-2xl font-bold text-primary">70+</div>
                   <div className="text-sm text-muted-foreground">Projects Delivered</div>
                 </div>
                 <div className="text-center">
@@ -64,7 +162,7 @@ export default function HomePage() {
                   <div className="text-sm text-muted-foreground">Client Satisfaction</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">5+</div>
+                  <div className="text-2xl font-bold text-primary">4+</div>
                   <div className="text-sm text-muted-foreground">Years Experience</div>
                 </div>
               </div>
@@ -268,8 +366,7 @@ export default function HomePage() {
               What Our <span className="text-primary">Clients Say</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Don't just take our word for it. Here's what our clients have to say about working with KundKund IT
-              Solutions.
+Don’t just take our word for it—hear directly from our valued clients about their journey with KundKund IT Solutions.
             </p>
           </div>
 
@@ -279,7 +376,7 @@ export default function HomePage() {
                 name: "Sarah Johnson",
                 role: "CTO, HealthTech Innovations",
                 content:
-                  "KundKund IT transformed our patient management system. Their AI-powered analytics have improved our operational efficiency by 40%.",
+                  "KundKund IT completely transformed our patient management system. With their AI-powered analytics, we’ve achieved a remarkable 40% boost in operational efficiency.",
                 rating: 5,
                 avatar: "/healthcare-executive-woman.png",
               },
@@ -287,7 +384,7 @@ export default function HomePage() {
                 name: "Michael Chen",
                 role: "Founder, PropVision",
                 content:
-                  "The real estate platform they built for us has revolutionized how we manage properties. Exceptional quality and attention to detail.",
+                  "The real estate platform developed by KundKund IT has transformed the way we manage properties. Their commitment to quality and precision is truly exceptional.",
                 rating: 5,
                 avatar: "/professional-man-real-estate-entrepreneur.jpg",
               },
@@ -295,7 +392,7 @@ export default function HomePage() {
                 name: "Emily Rodriguez",
                 role: "VP Engineering, TechStart",
                 content:
-                  "From MVP to scale, KundKund ITSolutionshas been our trusted partner. Their expertise in cloud architecture saved us months of development time.",
+                  "From MVP to full-scale growth, KundKund IT Solutions has been our trusted partner. Their cloud architecture expertise helped us save months of development effort.",
                 rating: 5,
                 avatar: "/professional-woman-tech-executive.png",
               },
@@ -388,8 +485,7 @@ export default function HomePage() {
               Why Choose <span className="text-primary">KundKund IT</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              We combine technical expertise with business acumen to deliver solutions that not only work but drive real
-              results.
+             We bring together technical expertise and business insight to deliver solutions that are effective and result-driven.
             </p>
           </div>
 
@@ -398,25 +494,25 @@ export default function HomePage() {
               {
                 icon: Zap,
                 title: "Rapid Development",
-                description: "Agile methodology ensures faster time-to-market without compromising quality.",
+                description: "Our Agile methodology enables faster time-to-market while maintaining the highest standards of quality.",
                 stat: "50% Faster Delivery",
               },
               {
                 icon: Shield,
                 title: "Enterprise Security",
-                description: "Bank-level security protocols and compliance with industry standards.",
+                description: "We follow bank-level security protocols and comply with leading industry standards to ensure complete data protection.",
                 stat: "100% Secure",
               },
               {
                 icon: Users,
                 title: "Dedicated Team",
-                description: "Experienced developers, designers, and project managers focused on your success.",
+                description: "Our team of experienced developers, designers, and project managers is dedicated to driving your success.",
                 stat: "24/7 Support",
               },
               {
                 icon: Target,
                 title: "Proven Results",
-                description: "Track record of successful projects across multiple industries and technologies.",
+                description: "We have a proven track record of delivering successful projects across diverse industries and technologies.",
                 stat: "98% Success Rate",
               },
             ].map((item, index) => (
@@ -453,25 +549,25 @@ export default function HomePage() {
               {
                 step: "01",
                 title: "Discovery & Planning",
-                description: "We analyze your requirements, define project scope, and create a detailed roadmap.",
+                description: "We carefully analyze your requirements, define the project scope, and develop a detailed roadmap for success.",
                 duration: "1-2 weeks",
               },
               {
                 step: "02",
                 title: "Design & Prototyping",
-                description: "User-centered design process with wireframes, mockups, and interactive prototypes.",
+                description: "We follow a user-centered design process, creating wireframes, mockups, and interactive prototypes to ensure optimal user experiences.",
                 duration: "2-3 weeks",
               },
               {
                 step: "03",
                 title: "Development & Testing",
-                description: "Agile development with continuous integration, testing, and regular client feedback.",
+                description: "We follow Agile development practices with continuous integration, rigorous testing, and regular client feedback to ensure quality and alignment.",
                 duration: "4-12 weeks",
               },
               {
                 step: "04",
                 title: "Launch & Support",
-                description: "Deployment, training, and ongoing maintenance to ensure long-term success.",
+                description: "We provide deployment, comprehensive training, and ongoing maintenance to ensure your project’s long-term success.",
                 duration: "Ongoing",
               },
             ].map((process, index) => (
@@ -494,46 +590,45 @@ export default function HomePage() {
       </section>
 
       {/* Technologies section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Technologies We <span className="text-primary">Master</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              We stay at the forefront of technology, using the latest tools and frameworks to build cutting-edge
-              solutions.
-            </p>
-          </div>
+      {/* Technologies section */}
+<section className="py-20">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
+        Technologies We <span className="text-primary">Master</span>
+      </h2>
+      <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+        We stay at the forefront of technology, using the latest tools and frameworks to build cutting-edge
+        solutions.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {[
-              { name: "React", category: "Frontend" },
-              { name: "Next.js", category: "Framework" },
-              { name: "Node.js", category: "Backend" },
-              { name: "Python", category: "AI/ML" },
-              { name: "AWS", category: "Cloud" },
-              { name: "Docker", category: "DevOps" },
-              { name: "TypeScript", category: "Language" },
-              { name: "PostgreSQL", category: "Database" },
-              { name: "React Native", category: "Mobile" },
-              { name: "TensorFlow", category: "AI/ML" },
-              { name: "Kubernetes", category: "DevOps" },
-              { name: "GraphQL", category: "API" },
-            ].map((tech, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-card border rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:border-primary/50 group-hover:shadow-md transition-all duration-300">
-                  <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <div className="w-4 h-4 bg-primary rounded-sm"></div>
-                  </div>
-                </div>
-                <h4 className="font-semibold text-sm">{tech.name}</h4>
-                <p className="text-xs text-muted-foreground">{tech.category}</p>
-              </div>
-            ))}
+    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+      {[
+        { name: "React", category: "Frontend", icon: <SiReact size={32} className="text-blue-500" /> },
+        { name: "Next.js", category: "Framework", icon: <SiNextdotjs size={32} className="text-black" /> },
+        { name: "Node.js", category: "Backend", icon: <SiNodedotjs size={32} className="text-green-500" /> },
+        { name: "Python", category: "AI/ML", icon: <SiPython size={32} className="text-yellow-500" /> },
+        { name: "AWS", category: "Cloud", icon: <SiAmazon size={32} className="text-orange-500" /> },
+        { name: "Docker", category: "DevOps", icon: <SiDocker size={32} className="text-blue-600" /> },
+        { name: "TypeScript", category: "Language", icon: <SiTypescript size={32} className="text-blue-700" /> },
+        { name: "PostgreSQL", category: "Database", icon: <SiPostgresql size={32} className="text-blue-800" /> },
+        { name: "React Native", category: "Mobile", icon: <SiReactivex size={32} className="text-teal-500" /> },
+        { name: "TensorFlow", category: "AI/ML", icon: <SiTensorflow size={32} className="text-orange-600" /> },
+        { name: "Kubernetes", category: "DevOps", icon: <SiKubernetes size={32} className="text-blue-500" /> },
+        { name: "GraphQL", category: "API", icon: <SiGraphql size={32} className="text-pink-500" /> },
+      ].map((tech, index) => (
+        <div key={index} className="text-center group">
+          <div className="w-16 h-16 bg-card border rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:border-primary/50 group-hover:shadow-md transition-all duration-300">
+            {tech.icon}
           </div>
+          <h4 className="font-semibold text-sm">{tech.name}</h4>
+          <p className="text-xs text-muted-foreground">{tech.category}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Recent Projects section */}
       <section className="py-20 bg-muted/30">
@@ -553,7 +648,7 @@ export default function HomePage() {
               {
                 title: "HealthCare AI Platform",
                 description:
-                  "AI-powered diagnostic platform that reduced diagnosis time by 60% for a major hospital network.",
+                  "An AI-driven diagnostic platform that helped a leading hospital network cut down diagnosis time by 60%, making healthcare faster and more efficient for patients",
                 industry: "Healthcare",
                 tech: ["Python", "TensorFlow", "React", "AWS"],
                 results: "60% faster diagnosis",
@@ -561,7 +656,7 @@ export default function HomePage() {
               },
               {
                 title: "PropTech Mobile App",
-                description: "Real estate management app with AR property tours and automated tenant screening.",
+                description: "A real estate management app that brings properties to life with AR tours and simplifies tenant screening through automation.",
                 industry: "Real Estate",
                 tech: ["React Native", "Node.js", "MongoDB", "AR Kit"],
                 results: "300% user engagement",
@@ -569,7 +664,7 @@ export default function HomePage() {
               },
               {
                 title: "E-commerce Platform",
-                description: "Scalable e-commerce solution handling 10M+ transactions with advanced analytics.",
+                description: "A scalable e-commerce platform that effortlessly handles over 10M+ transactions while providing advanced analytics for smarter business decisions.",
                 industry: "Retail",
                 tech: ["Next.js", "Stripe", "PostgreSQL", "Redis"],
                 results: "10M+ transactions",
@@ -614,62 +709,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ section */}
-      <section className="py-20">
+     <section className="py-20 text-center bg-gray-100">
+        <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-balance">
+          Welcome to Our IT Solutions
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          Delivering cutting-edge technology to help your business grow and succeed.
+        </p>
+        <Button className="mt-8">Get Started</Button>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
               Frequently Asked <span className="text-primary">Questions</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Get answers to common questions about our services, process, and what makes us different.
+              Got questions? Here are answers to some of the most common queries about our services and process.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  question: "How long does a typical project take?",
-                  answer:
-                    "Project timelines vary based on complexity, but most web applications take 8-16 weeks, while mobile apps typically require 12-20 weeks from concept to launch.",
-                },
-                {
-                  question: "Do you provide ongoing support?",
-                  answer:
-                    "Yes, we offer comprehensive maintenance packages including bug fixes, security updates, performance monitoring, and feature enhancements.",
-                },
-                {
-                  question: "What industries do you specialize in?",
-                  answer:
-                    "We have deep expertise in healthcare, real estate (PropTech), fintech, e-commerce, and enterprise software, with HIPAA and SOC2 compliance experience.",
-                },
-                {
-                  question: "Can you work with our existing team?",
-                  answer:
-                    "We offer flexible engagement models including staff augmentation, dedicated teams, and hybrid approaches to complement your internal resources.",
-                },
-                {
-                  question: "What's your development methodology?",
-                  answer:
-                    "We follow Agile/Scrum methodology with 2-week sprints, regular demos, and continuous client feedback to ensure transparency and quality delivery.",
-                },
-                {
-                  question: "Do you sign NDAs and ensure IP protection?",
-                  answer:
-                    "Yes, we prioritize confidentiality and intellectual property protection. We're happy to sign NDAs and ensure all code and data remain secure and proprietary to you.",
-                },
-              ].map((faq, index) => (
-                <Card key={index} className="p-6 hover:shadow-md transition-shadow duration-300">
-                  <h3 className="font-semibold text-lg mb-3 text-balance">{faq.question}</h3>
-                  <p className="text-muted-foreground text-pretty">{faq.answer}</p>
-                </Card>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {faqs.map((faq, index) => (
+              <FAQItem
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openIndex === index}
+                onClick={() => handleToggle(index)}
+              />
+            ))}
           </div>
         </div>
       </section>
-
       <StickyCTA />
     </>
   )
