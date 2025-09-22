@@ -15,6 +15,8 @@ import {
   Users,
   Zap,
   Target,
+  Code,
+  Server,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -100,49 +102,50 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              {
-                icon: Brain,
-                title: "AI & Machine Learning",
-                description:
-                  "Intelligent automation, predictive analytics, and custom AI models to enhance decision-making and efficiency.",
-                features: ["Custom AI Models", "Predictive Analytics", "Process Automation"],
-              },
-              {
-                icon: Globe,
-                title: "Web Development",
-                description:
-                  "Modern, responsive web applications built with cutting-edge technologies for optimal performance.",
-                features: ["React & Next.js", "Progressive Web Apps", "E-commerce Solutions"],
-              },
-              {
-                icon: Smartphone,
-                title: "Mobile Applications",
-                description:
-                  "Native and cross-platform mobile apps that deliver exceptional user experiences across all devices.",
-                features: ["iOS & Android", "Cross-Platform", "App Store Optimization"],
-              },
-              {
-                icon: Cloud,
-                title: "Cloud Solutions",
-                description:
-                  "Scalable cloud infrastructure and migration services to ensure reliability and cost-effectiveness.",
-                features: ["AWS & Azure", "DevOps & CI/CD", "Cloud Migration"],
-              },
-              {
-                icon: Palette,
-                title: "UI/UX Design",
-                description:
-                  "User-centered design that creates intuitive interfaces and memorable digital experiences.",
-                features: ["User Research", "Prototyping", "Design Systems"],
-              },
-              {
-                icon: Shield,
-                title: "QA & Testing",
-                description:
-                  "Comprehensive testing strategies to ensure your software is reliable, secure, and bug-free.",
-                features: ["Automated Testing", "Security Audits", "Performance Testing"],
-              },
-            ].map((service, index) => (
+  {
+    icon: Brain, // AI/ML
+    title: "AI/ML",
+    description:
+      "Intelligent automation, predictive analytics, and custom AI models to enhance decision-making and efficiency.",
+    features: ["Custom AI Models", "Predictive Analytics", "Process Automation"],
+  },
+  {
+    icon: Globe, // Web Development
+    title: "Web Development",
+    description:
+      "Modern, responsive web applications built with cutting-edge technologies for optimal performance.",
+    features: ["React & Next.js", "Progressive Web Apps", "E-commerce Solutions"],
+  },
+  {
+    icon: Smartphone, // Mobile App Development
+    title: "Mobile App Development",
+    description:
+      "Native and cross-platform mobile apps that deliver exceptional user experiences across all devices.",
+    features: ["iOS & Android", "Cross-Platform", "App Store Optimization"],
+  },
+  {
+    icon: Code, // Product Development
+    title: "Product Development",
+    description:
+      "End-to-end product development services from ideation to deployment, ensuring innovative and market-ready solutions.",
+    features: ["Prototyping", "MVP Development", "Product Strategy"],
+  },
+  {
+    icon: Server, // Enterprise Software
+    title: "Enterprise Software",
+    description:
+      "Custom enterprise solutions that streamline operations, enhance collaboration, and improve overall business efficiency.",
+    features: ["ERP Systems", "CRM Solutions", "Business Process Automation"],
+  },
+  {
+    icon: Cloud, // SaaS Product
+    title: "SaaS Product",
+    description:
+      "Scalable Software-as-a-Service products designed for seamless user experience and subscription-based business models.",
+    features: ["Cloud Deployment", "Subscription Management", "Multi-Tenant Architecture"],
+  },
+]
+.map((service, index) => (
               <Card
                 key={index}
                 className="group hover:shadow-lg transition-all duration-300 border-0 bg-card/50 backdrop-blur"
@@ -185,31 +188,56 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                title: "Healthcare",
-                description: "HIPAA-compliant solutions, telemedicine platforms, and patient management systems.",
-                image: "/modern-healthcare-technology-and-medical-software-.jpg",
-                stats: "15+ Healthcare Projects",
-              },
-              {
-                title: "Real Estate",
-                description: "PropTech solutions, property management platforms, and virtual tour applications.",
-                image: "/real-estate-technology-and-property-management-sof.jpg",
-                stats: "20+ PropTech Solutions",
-              },
-              {
-                title: "Startups",
-                description: "MVP development, rapid prototyping, and scalable architecture for growing businesses.",
-                image: "/startup-technology-and-innovative-business-softwar.jpg",
-                stats: "30+ Startup Launches",
-              },
-              {
-                title: "Enterprises",
-                description: "Legacy system modernization, enterprise integrations, and digital transformation.",
-                image: "/enterprise-software-and-corporate-technology-solut.jpg",
-                stats: "10+ Enterprise Clients",
-              },
-            ].map((industry, index) => (
+  {
+    title: "Healthcare",
+    description: "HIPAA-compliant solutions, telemedicine platforms, and patient management systems.",
+    image: "/modern-healthcare-technology-and-medical-software-.jpg",
+    stats: "15+ Healthcare Projects",
+  },
+  {
+    title: "Real Estate",
+    description: "PropTech solutions, property management platforms, and virtual tour applications.",
+    image: "/real-estate-technology-and-property-management-sof.jpg",
+    stats: "20+ PropTech Solutions",
+  },
+  {
+    title: "Startups",
+    description: "MVP development, rapid prototyping, and scalable architecture for growing businesses.",
+    image: "/startup-technology-and-innovative-business-softwar.jpg",
+    stats: "30+ Startup Launches",
+  },
+  {
+    title: "Manufacturing",
+    description: "Smart factory solutions, IoT integration, and production optimization software.",
+    image: "/manufacturing.png",
+    stats: "25+ Manufacturing Projects",
+  },
+  {
+    title: "Logistics",
+    description: "Supply chain management platforms, fleet tracking, and warehouse automation systems.",
+    image: "/logistics-services.jpg",
+    stats: "20+ Logistics Solutions",
+  },
+  {
+    title: "EdTech",
+    description: "E-learning platforms, online classrooms, and digital education tools.",
+    image: "/EdTech.jpg",
+    stats: "18+ EdTech Projects",
+  },
+  {
+    title: "FinTech",
+    description: "Payment gateways, digital banking platforms, and financial analytics solutions.",
+    image: "/fintech-1.jpg",
+    stats: "22+ FinTech Projects",
+  },
+  {
+    title: "Technology Startups",
+    description: "Innovation-driven solutions, product prototyping, and scalable software architecture.",
+    image: "/startuptechnlogy.jpg",
+    stats: "15+ Tech Startup Projects",
+  }
+]
+.map((industry, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="relative h-48 overflow-hidden">
                   <Image
