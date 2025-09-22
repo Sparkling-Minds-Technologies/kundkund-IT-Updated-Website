@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match FreshTech Solutions teal/blue brand */
+  /* Updated color tokens to match KundKund IT Solutions teal/blue brand */
   --background: oklch(1 0 0);
   --foreground: oklch(0.278 0 0);
   --card: oklch(0.973 0 0);

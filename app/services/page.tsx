@@ -22,7 +22,7 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Our Services - FreshTech Solutions",
+  title: "Our Services - KundKund IT",
   description:
     "Comprehensive software development services including AI/ML, web development, mobile apps, cloud solutions, UI/UX design, and QA automation.",
 }

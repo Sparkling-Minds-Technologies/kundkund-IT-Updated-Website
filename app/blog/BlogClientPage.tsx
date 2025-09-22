@@ -155,7 +155,7 @@ export default function BlogClientPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto space-y-6">
             <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-              FreshTech Blog
+              KundKund IT Blog
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold text-balance">
               Insights & <span className="text-primary">Innovation</span>

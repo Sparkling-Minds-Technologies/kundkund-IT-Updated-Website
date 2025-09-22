@@ -22,9 +22,9 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "About Us - FreshTech Solutions",
+  title: "About Us - KundKund IT",
   description:
-    "Learn about FreshTech Solutions - our mission, values, team, and commitment to delivering innovative software solutions that drive business growth.",
+    "Learn about KundKund IT - our mission, values, team, and commitment to delivering innovative software solutions that drive business growth.",
 }
 
 export default function AboutPage() {
@@ -205,7 +205,7 @@ export default function AboutPage() {
             <div className="relative">
               <Image
                 src="/modern-software-development-team-working-on-innova.jpg"
-                alt="FreshTech Solutions Team"
+                alt="KundKund IT Team"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-2xl w-full h-80 object-cover"
@@ -342,7 +342,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Why Choose <span className="text-primary">FreshTech Solutions</span>
+              Why Choose <span className="text-primary">KundKund IT</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
               We combine technical expertise with business acumen to deliver solutions that not only work but drive real
@@ -493,7 +493,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto space-y-8">
             <h2 className="text-3xl lg:text-5xl font-bold text-balance">Ready to Work Together?</h2>
             <p className="text-xl opacity-90 text-pretty max-w-2xl mx-auto">
-              Join the growing list of satisfied clients who trust FreshTech Solutions to deliver innovative software
+              Join the growing list of satisfied clients who trust KundKund IT to deliver innovative software
               solutions that drive business growth.
             </p>
 

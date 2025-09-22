@@ -396,7 +396,7 @@ export default function ContactPageClient() {
 
               {/* Why Choose Us */}
               <div>
-                <h3 className="font-semibold text-lg mb-4">Why Choose FreshTech Solutions?</h3>
+                <h3 className="font-semibold text-lg mb-4">Why Choose KundKund IT?</h3>
                 <div className="space-y-3">
                   {[
                     "Free initial consultation and project assessment",

@@ -72,7 +72,7 @@ export default function HomePage() {
               <div className="relative z-10">
                 <Image
                   src="/modern-software-development-team-working-on-innova.jpg"
-                  alt="FreshTech Solutions - Software Development Team"
+                  alt="KundKund IT - Software Development Team"  
                   width={600}
                   height={600}
                   className="rounded-2xl shadow-2xl"
@@ -240,7 +240,7 @@ export default function HomePage() {
               What Our <span className="text-primary">Clients Say</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Don't just take our word for it. Here's what our clients have to say about working with FreshTech
+              Don't just take our word for it. Here's what our clients have to say about working with KundKund IT
               Solutions.
             </p>
           </div>
@@ -251,7 +251,7 @@ export default function HomePage() {
                 name: "Sarah Johnson",
                 role: "CTO, HealthTech Innovations",
                 content:
-                  "FreshTech Solutions transformed our patient management system. Their AI-powered analytics have improved our operational efficiency by 40%.",
+                  "KundKund IT transformed our patient management system. Their AI-powered analytics have improved our operational efficiency by 40%.",
                 rating: 5,
                 avatar: "/healthcare-executive-woman.png",
               },
@@ -267,7 +267,7 @@ export default function HomePage() {
                 name: "Emily Rodriguez",
                 role: "VP Engineering, TechStart",
                 content:
-                  "From MVP to scale, FreshTech has been our trusted partner. Their expertise in cloud architecture saved us months of development time.",
+                  "From MVP to scale, KundKund ITSolutionshas been our trusted partner. Their expertise in cloud architecture saved us months of development time.",
                 rating: 5,
                 avatar: "/professional-woman-tech-executive.png",
               },
@@ -357,7 +357,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Why Choose <span className="text-primary">FreshTech Solutions</span>
+              Why Choose <span className="text-primary">KundKund IT</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
               We combine technical expertise with business acumen to deliver solutions that not only work but drive real
