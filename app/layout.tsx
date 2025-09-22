@@ -32,7 +32,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-    generator: 'v0.app'
+    generator: 'v0.app',
+  icons: {
+    icon: "/favicon.png",  
+  },
 }
 
 export default function RootLayout({
