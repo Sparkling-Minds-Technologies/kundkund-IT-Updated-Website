@@ -12,8 +12,38 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Phone, Mail, MapPin, Clock, Send, Calendar, MessageSquare, ArrowRight, CheckCircle } from "lucide-react"
 import Link from "next/link"
+import { ChevronDown, ChevronUp } from "lucide-react";
+
+const faqData = [
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "It really depends on the kind of project. A simple website can be ready in about 4-6 weeks, while more complex applications may take anywhere between 3-6 months. Don’t worry, we’ll share a clear timeline with you right at the start so you know what to expect.",
+  },
+  {
+    question: "Do you provide ongoing support?",
+    answer:
+      "Absolutely! Once your project goes live, we’re here to support you with bug fixes, updates, and regular maintenance. We also provide training to help your team manage and get the most out of the solution.",
+  },
+  {
+    question: "What industries do you specialize in?",
+    answer:
+      "We work with a wide range of industries including healthcare, real estate (PropTech), startups, and enterprise businesses. Our team understands the unique requirements and compliance standards for each sector.",
+  },
+  {
+    question: "How do you handle project communication?",
+    answer:
+      "We follow an agile approach with regular updates. Expect daily check-ins, weekly progress reports, and direct access to your project manager and development team. That way, you’re always in the loop and there are no surprises.",
+  },
+];
+
 
 export default function ContactPageClient() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -74,7 +104,7 @@ export default function ContactPageClient() {
     },
     {
       icon: MessageSquare,
-      title: "Live Chat",
+      title: "Whatsapp Chat",
       description: "Chat with us in real-time",
       value: "Available 8 AM - 5 PM",
       action: "#",
@@ -484,54 +514,47 @@ export default function ContactPageClient() {
   </div>
 </section>
 
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Frequently Asked <span className="text-primary">Questions</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Have questions about our process, pricing, or services? Here are some common questions we receive.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                question: "How long does a typical project take?",
-                answer:
-                  "Project timelines vary based on complexity and scope. Simple websites take 4-6 weeks, while complex applications can take 3-6 months. We provide detailed timelines during our initial consultation.",
-              },
-              {
-                question: "Do you provide ongoing support?",
-                answer:
-                  "Yes, we offer comprehensive post-launch support including bug fixes, updates, and maintenance. We also provide training to help your team manage the solution effectively.",
-              },
-              {
-                question: "What industries do you specialize in?",
-                answer:
-                  "We have deep expertise in healthcare, real estate (PropTech), startups, and enterprise solutions. Our team understands industry-specific requirements and compliance needs.",
-              },
-              {
-                question: "How do you handle project communication?",
-                answer:
-                  "We use agile methodology with regular sprint reviews, daily standups, and weekly client updates. You'll have direct access to your project manager and development team.",
-              },
-            ].map((faq, index) => (
-              <Card key={index} className="bg-card/50 backdrop-blur border-0">
-                <CardHeader>
-                  <CardTitle className="text-lg">{faq.question}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-pretty">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+ <section className="py-20 bg-gradient-to-b from-muted/30 to-muted/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
+            Frequently Asked <span className="text-primary">Questions</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+            Have questions about our process, pricing, or services? Here are some common questions we receive.
+          </p>
         </div>
-      </section>
+
+        <div className="max-w-4xl mx-auto space-y-4">
+          {faqData.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-card/50 backdrop-blur-lg border border-primary/20 rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+            >
+              <button
+                onClick={() => toggle(index)}
+                className="w-full flex justify-between items-center p-5 focus:outline-none"
+              >
+                <h3 className="text-lg font-medium text-pretty">{faq.question}</h3>
+                {openIndex === index ? (
+                  <ChevronUp className="h-5 w-5 text-primary transition-transform duration-300" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-primary transition-transform duration-300" />
+                )}
+              </button>
+              <div
+                className={`px-5 pb-5 text-muted-foreground text-pretty transition-all duration-500 overflow-hidden ${
+                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <p>{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
     </div>
   )
 }

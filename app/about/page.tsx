@@ -314,53 +314,63 @@ export default function AboutPage() {
   </div>
 </section>
 
-      {/* Timeline */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Our <span className="text-primary">Journey</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              From a small startup to a trusted software development partner, here are the key milestones that have
-              shaped our growth.
-            </p>
-          </div>
+    {/* Timeline */}
+<section className="py-20 bg-gradient-to-b from-muted/50 to-muted/10 relative">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
+        Our <span className="text-primary">Journey</span>
+      </h2>
+      <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+        From a small startup to a trusted software development partner, here are the key milestones that have
+        shaped our growth.
+      </p>
+    </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary/20"></div>
-            <div className="space-y-12">
-              {timeline.map((milestone, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-8`}
-                >
-                  <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
-                    <Card className="bg-card/50 backdrop-blur border-0">
-                      <CardHeader>
-                        <div className="flex items-center space-x-2">
-                          <Calendar className="h-5 w-5 text-primary" />
-                          <Badge variant="secondary" className="bg-primary/10 text-primary">
-                            {milestone.year}
-                          </Badge>
-                        </div>
-                        <CardTitle className="text-xl">{milestone.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-pretty">{milestone.description}</CardDescription>
-                      </CardContent>
-                    </Card>
+    <div className="relative">
+      {/* Vertical timeline line */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary/50 via-primary/30 to-primary/10"></div>
+
+      <div className="space-y-12">
+        {timeline.map((milestone, index) => (
+          <div
+            key={index}
+            className={`flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-8`}
+          >
+            {/* Card */}
+            <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"} transition-transform duration-500 hover:scale-105`}>
+              <Card className="bg-gradient-to-tr from-white/70 to-white/20 backdrop-blur-lg border border-primary/20 shadow-lg hover:shadow-2xl transition-shadow duration-500">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Calendar className="h-5 w-5 text-primary" />
+                      <Badge variant="secondary" className="bg-primary/10 text-primary">
+                        {milestone.year}
+                      </Badge>
+                    </div>
                   </div>
-                  <div className="relative z-10">
-                    <div className="w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
-                  </div>
-                  <div className="flex-1"></div>
-                </div>
-              ))}
+                  <CardTitle className="text-xl font-semibold">{milestone.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-pretty">{milestone.description}</CardDescription>
+                </CardContent>
+              </Card>
             </div>
+
+            {/* Timeline Dot */}
+            <div className="relative z-10 flex justify-center items-center">
+              <div className="w-6 h-6 bg-primary rounded-full border-4 border-background shadow-lg animate-pulse"></div>
+            </div>
+
+            {/* Empty placeholder for spacing */}
+            <div className="flex-1"></div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
     {/* Why Choose Us */}
 <section className="py-20 bg-muted/30 relative overflow-hidden">
