@@ -10,11 +10,11 @@ import { Search, Calendar, ArrowRight, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
-// Sample blog posts data
+// Sample blog posts data with Unsplash images
 const blogPosts = [
   {
-    slug: "ai-healthcare-revolution-2024",
-    title: "How AI is Revolutionizing Healthcare in 2024",
+    slug: "ai-healthcare-revolution-2025",
+    title: "How AI is Revolutionizing Healthcare in 2025",
     excerpt:
       "Explore the latest AI applications transforming patient care, from diagnostic imaging to personalized treatment plans.",
     content: "Full blog content would go here...",
@@ -23,16 +23,17 @@ const blogPosts = [
       role: "Senior AI Engineer",
       avatar: "/ai-engineer-data-scientist.png",
     },
-    publishedAt: "2024-01-15",
+    publishedAt: "2025-09-15",
     readTime: "8 min read",
     category: "AI & Machine Learning",
     tags: ["AI", "Healthcare", "Machine Learning", "Innovation"],
-    image: "/placeholder.svg?key=ai-healthcare",
+    image:
+      "https://assets.primotech.com/wp-content/uploads/2024/08/Ai-In-Healthcare-3.png", // AI & Healthcare
     featured: true,
   },
   {
     slug: "nextjs-performance-optimization",
-    title: "Next.js Performance Optimization: Best Practices for 2024",
+    title: "Next.js Performance Optimization: Best Practices for 2025",
     excerpt:
       "Learn advanced techniques to optimize your Next.js applications for better performance and user experience.",
     content: "Full blog content would go here...",
@@ -41,11 +42,12 @@ const blogPosts = [
       role: "Head of Engineering",
       avatar: "/senior-software-engineer-male.png",
     },
-    publishedAt: "2024-01-10",
+    publishedAt: "2025-09-10",
     readTime: "12 min read",
     category: "Web Development",
     tags: ["Next.js", "Performance", "React", "Optimization"],
-    image: "/placeholder.svg?key=nextjs-performance",
+    image:
+      "https://www.brainvire.com/blog/wp-content/uploads/2019/10/your-ultimate-guide-to-fullstack-web-development.jpg", // Web development / coding
     featured: false,
   },
   {
@@ -59,45 +61,50 @@ const blogPosts = [
       role: "CTO & Co-Founder",
       avatar: "/female-cto-software-engineer.png",
     },
-    publishedAt: "2024-01-05",
+    publishedAt: "2025-09-15",
     readTime: "10 min read",
     category: "Industry Insights",
     tags: ["PropTech", "Real Estate", "Innovation", "Technology"],
-    image: "/placeholder.svg?key=proptech-trends",
+    image:
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80", // Real estate / technology
     featured: true,
   },
   {
     slug: "cloud-security-best-practices",
     title: "Cloud Security Best Practices for Enterprise Applications",
-    excerpt: "Essential security measures every enterprise should implement when moving to the cloud infrastructure.",
+    excerpt:
+      "Essential security measures every enterprise should implement when moving to the cloud infrastructure.",
     content: "Full blog content would go here...",
     author: {
       name: "Alex Chen",
       role: "CEO & Co-Founder",
       avatar: "/professional-ceo-tech-leader.png",
     },
-    publishedAt: "2023-12-28",
+    publishedAt: "2025-8-28",
     readTime: "15 min read",
     category: "Cloud Solutions",
     tags: ["Cloud Security", "Enterprise", "DevOps", "Security"],
-    image: "/placeholder.svg?key=cloud-security",
+    image:
+      "https://www.secion.de/assets/images/2/vernachlaessigte_cloud_security-4edd193b.jpeg", // Cloud / security / enterprise
     featured: false,
   },
   {
     slug: "ux-design-healthcare-apps",
     title: "UX Design Principles for Healthcare Applications",
-    excerpt: "How to create user-friendly healthcare interfaces that prioritize patient safety and accessibility.",
+    excerpt:
+      "How to create user-friendly healthcare interfaces that prioritize patient safety and accessibility.",
     content: "Full blog content would go here...",
     author: {
       name: "Emily Davis",
       role: "Lead UI/UX Designer",
       avatar: "/female-ui-ux-designer.png",
     },
-    publishedAt: "2023-12-20",
+    publishedAt: "2025-09-20",
     readTime: "9 min read",
     category: "Design",
     tags: ["UX Design", "Healthcare", "Accessibility", "User Experience"],
-    image: "/placeholder.svg?key=ux-healthcare",
+    image:
+      "https://bs-uploads.toptal.io/blackfish-uploads/components/open_graph_image/10503629/og_image/optimized/0807_Elegant-Healthcare-UX-The-Missing-Piece-in-Medical-Devices_Social-d3050c1e7104bf21c0d5a4728d8b06ec.png", // UX / healthcare app design
     featured: false,
   },
   {
@@ -111,14 +118,15 @@ const blogPosts = [
       role: "Project Manager",
       avatar: "/female-project-manager.png",
     },
-    publishedAt: "2023-12-15",
+    publishedAt: "2025-09-15",
     readTime: "11 min read",
     category: "Startup Insights",
     tags: ["MVP", "Startups", "Product Development", "Strategy"],
-    image: "/placeholder.svg?key=mvp-development",
+    image:
+      "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80", // Startups / development
     featured: false,
   },
-]
+];
 
 const categories = [
   "All Categories",

@@ -10,8 +10,8 @@ import type { Metadata } from "next"
 // Sample blog posts data (in a real app, this would come from a CMS or database)
 const blogPosts = [
   {
-    slug: "ai-healthcare-revolution-2024",
-    title: "How AI is Revolutionizing Healthcare in 2024",
+    slug: "ai-healthcare-revolution-2025",
+    title: "How AI is Revolutionizing Healthcare in 2025",
     excerpt:
       "Explore the latest AI applications transforming patient care, from diagnostic imaging to personalized treatment plans.",
     content: `
@@ -66,7 +66,7 @@ const blogPosts = [
       avatar: "/ai-engineer-data-scientist.png",
       bio: "David is a machine learning expert with a PhD in Computer Science and over 8 years of experience building AI solutions for healthcare and fintech industries.",
     },
-    publishedAt: "2024-01-15",
+    publishedAt: "2025-09-15",
     readTime: "8 min read",
     category: "AI & Machine Learning",
     tags: ["AI", "Healthcare", "Machine Learning", "Innovation"],

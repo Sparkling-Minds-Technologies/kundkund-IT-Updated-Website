@@ -211,7 +211,7 @@ export default function AboutPage() {
                 className="rounded-2xl shadow-2xl w-full h-80 object-cover"
               />
               <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-lg shadow-lg">
-                <div className="text-2xl font-bold">5+</div>
+                <div className="text-2xl font-bold">4+</div>
                 <div className="text-sm opacity-90">Years of Excellence</div>
               </div>
             </div>
@@ -220,74 +220,99 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className="bg-primary/5 border-primary/20">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center space-x-2">
-                  <Target className="h-6 w-6 text-primary" />
-                  <span>Our Mission</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-muted-foreground text-pretty">
-                  To empower businesses with innovative software solutions that drive growth, efficiency, and digital
-                  transformation. We believe technology should be accessible, reliable, and tailored to each client's
-                  unique needs.
-                </p>
-              </CardContent>
-            </Card>
+     {/* Mission & Vision */}
+<section className="py-20 relative overflow-hidden">
+  {/* Background Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 pointer-events-none" />
 
-            <Card className="bg-accent/5 border-accent/20">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center space-x-2">
-                  <Award className="h-6 w-6 text-accent" />
-                  <span>Our Vision</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-muted-foreground text-pretty">
-                  To be the leading software development partner for businesses seeking innovative, scalable solutions.
-                  We envision a future where technology seamlessly integrates with business processes to create
-                  exceptional value.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Our <span className="text-primary">Values</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              These core values guide everything we do, from how we approach projects to how we build relationships with
-              our clients and team members.
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* Mission Card */}
+      <div className="group relative">
+        <Card className="bg-white/70 dark:bg-card/40 backdrop-blur-lg border border-primary/20 shadow-lg rounded-2xl p-6 transform transition duration-500 hover:scale-105 hover:shadow-2xl">
+          <CardHeader>
+            <CardTitle className="text-2xl flex items-center space-x-3">
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full bg-primary/20 blur-lg animate-pulse" />
+                <Target className="h-6 w-6 text-primary relative z-10 animate-bounce-slow" />
+              </div>
+              <span className="font-semibold">Our Mission</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+              To empower businesses with innovative software solutions that drive growth, efficiency, and digital
+              transformation. We believe technology should be accessible, reliable, and tailored to each client's
+              unique needs.
             </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Vision Card */}
+      <div className="group relative">
+        <Card className="bg-white/70 dark:bg-card/40 backdrop-blur-lg border border-accent/20 shadow-lg rounded-2xl p-6 transform transition duration-500 hover:scale-105 hover:shadow-2xl">
+          <CardHeader>
+            <CardTitle className="text-2xl flex items-center space-x-3">
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full bg-accent/20 blur-lg animate-pulse" />
+                <Award className="h-6 w-6 text-accent relative z-10 animate-bounce-slow" />
+              </div>
+              <span className="font-semibold">Our Vision</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+              To be the leading software development partner for businesses seeking innovative, scalable solutions.
+              We envision a future where technology seamlessly integrates with business processes to create
+              exceptional value.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>
+
+    {/* Values */}
+<section className="py-16 bg-muted/30">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-balance">
+        Our <span className="text-primary">Values</span>
+      </h2>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+        These core values guide everything we do, from how we approach projects to how we build relationships with
+        our clients and team members.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      {values.map((value, index) => (
+        <Card
+          key={index}
+          className="flex flex-col text-center bg-card/60 border border-border/40 
+                     rounded-2xl shadow-sm transition-all duration-300 
+                     hover:shadow-lg hover:scale-[1.02] h-full"
+        >
+          <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mt-6">
+            <value.icon className="h-7 w-7 text-primary" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="text-center bg-card/50 backdrop-blur border-0">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">{value.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-pretty">{value.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+          <CardHeader className="p-4 pb-2">
+            <CardTitle className="text-lg font-semibold">{value.title}</CardTitle>
+          </CardHeader>
+
+          <CardContent className="px-4 pb-6 flex-grow">
+            <CardDescription className="text-sm text-muted-foreground leading-relaxed break-words">
+              {value.description}
+            </CardDescription>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Timeline */}
       <section className="py-20">
@@ -337,35 +362,52 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Why Choose <span className="text-primary">KundKund IT</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              We combine technical expertise with business acumen to deliver solutions that not only work but drive real
-              business value.
-            </p>
-          </div>
+    {/* Why Choose Us */}
+<section className="py-20 bg-muted/30 relative overflow-hidden">
+  {/* Subtle background gradient */}
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 pointer-events-none" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUs.map((reason, index) => (
-              <Card key={index} className="text-center bg-card/50 backdrop-blur border-0">
-                <CardHeader>
-                  <div className="text-3xl font-bold text-primary mb-2">{reason.stat}</div>
-                  <div className="text-sm text-muted-foreground mb-4">{reason.label}</div>
-                  <CardTitle className="text-xl">{reason.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-pretty">{reason.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    {/* Section Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
+        Why Choose <span className="text-primary">KundKund IT</span>
+      </h2>
+      <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+        We combine technical expertise with business acumen to deliver solutions that not only work but drive real
+        business value.
+      </p>
+    </div>
+
+    {/* Cards Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+      {whyChooseUs.map((reason, index) => (
+        <Card
+          key={index}
+          className="flex flex-col text-center bg-card/60 backdrop-blur-lg border border-border/40 
+                     rounded-2xl shadow-sm transition-all duration-300 
+                     hover:scale-[1.03] hover:shadow-lg h-full"
+        >
+          <CardHeader className="px-6 pt-6 pb-2">
+            {/* Animated Glowing Stat */}
+            <div className="relative inline-block mx-auto mb-2">
+              <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse"></div>
+              <div className="relative text-4xl font-bold text-primary">{reason.stat}</div>
+            </div>
+            <div className="text-sm text-muted-foreground mb-4">{reason.label}</div>
+            <CardTitle className="text-xl font-semibold">{reason.title}</CardTitle>
+          </CardHeader>
+
+          <CardContent className="px-6 pb-6 flex-grow">
+            <CardDescription className="text-sm text-muted-foreground leading-relaxed break-words">
+              {reason.description}
+            </CardDescription>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Team Section */}
       <section id="team" className="py-20">
@@ -428,64 +470,54 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Office Locations */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Our <span className="text-primary">Locations</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              We're strategically located to serve clients across different time zones while maintaining close
-              collaboration with our distributed team.
-            </p>
-          </div>
+     {/* Office Locations */}
+<section className="py-20 bg-muted/30 relative overflow-hidden">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    {/* Section Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
+        Our <span className="text-primary">Locations</span>
+      </h2>
+      <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+        We're strategically located to serve clients across different time zones while maintaining close
+        collaboration with our distributed team.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                city: "San Francisco",
-                address: "123 Tech Street, Innovation District, CA 94105",
-                type: "Headquarters",
-                email: "sf@freshtech.solutions",
-              },
-              {
-                city: "New York",
-                address: "456 Business Ave, Manhattan, NY 10001",
-                type: "East Coast Office",
-                email: "ny@freshtech.solutions",
-              },
-              {
-                city: "Austin",
-                address: "789 Startup Blvd, Tech Quarter, TX 78701",
-                type: "Development Center",
-                email: "austin@freshtech.solutions",
-              },
-            ].map((office, index) => (
-              <Card key={index} className="bg-card/50 backdrop-blur border-0">
-                <CardHeader>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">
-                      {office.type}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-xl">{office.city}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-sm text-muted-foreground">{office.address}</p>
-                  <div className="flex items-center space-x-2">
-                    <Mail className="h-4 w-4 text-primary" />
-                    <Link href={`mailto:${office.email}`} className="text-sm text-primary hover:underline">
-                      {office.email}
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+    {/* Centered Card */}
+    <div className="flex justify-center">
+      <Card className="flex flex-col bg-card/60 backdrop-blur-lg border border-border/40 rounded-2xl shadow-md
+                       transition-all duration-300 hover:shadow-xl hover:scale-[1.03] max-w-md w-full">
+        <CardHeader className="px-6 pt-6 pb-3">
+          {/* Type Badge with Glowing Icon */}
+          <div className="flex items-center space-x-2 mb-3 relative">
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse"></div>
+            <MapPin className="h-5 w-5 text-primary relative z-10" />
+            <Badge className="bg-primary/10 text-primary relative z-10">Office</Badge>
           </div>
-        </div>
-      </section>
+          {/* City Name */}
+          <CardTitle className="text-2xl font-semibold">Noida</CardTitle>
+        </CardHeader>
+
+        <CardContent className="px-6 pb-6 space-y-4">
+          {/* Address */}
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            H-166, Sector 63 Rd, H Block, Noida, Uttar Pradesh, 201301
+          </p>
+
+          {/* Email */}
+          <div className="flex items-center space-x-2">
+            <Mail className="h-4 w-4 text-primary" />
+            <Link href="mailto:info@kundkundit.com" className="text-sm text-primary hover:underline">
+              info@kundkundit.com
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">

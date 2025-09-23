@@ -177,7 +177,7 @@ export default function IndustriesPage() {
   id: "manufacturing",
   icon: Factory,
   title: "Manufacturing",
-  subtitle: "Smart Production & Industry 4.0",
+  subtitle: "Smart Production & Industry 4.0, Advanced Manufacturing,",
   description:
     "Transform your manufacturing operations with intelligent automation, optimized workflows, and advanced Industry 4.0 solutions.",
   image: "/manufacturing.png",
@@ -468,61 +468,78 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-    {/* Industries Overview   need to fix gap */} 
-<section className="py-20">
+  {/* Industries Overview */}
+{/* Industries Overview */}
+<section className="py-16 bg-gray-50">
   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {industries.map((industry) => (
         <Card
           key={industry.id}
-          className="group hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col h-full"
+          className="group overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col h-full bg-white"
         >
           {/* Card Header */}
-          <CardHeader className="text-center pb-4">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+          <div className="flex flex-col items-center justify-center pt-6 pb-4 
+                          w-full min-h-[140px]
+                          bg-gradient-to-r from-primary/20 to-primary/10 
+                          group-hover:from-primary/40 group-hover:to-primary/20 
+                          transition-all rounded-t-2xl">
+            {/* Icon Circle */}
+            <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 
+                            bg-white shadow-md">
               <industry.icon className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="text-xl break-words mb-2">{industry.title}</CardTitle>
-            <CardDescription className="break-words">{industry.subtitle}</CardDescription>
-          </CardHeader>
 
-          {/* Card Content */}
-        <CardContent className="mt-4">
-  <div className="flex justify-between text-sm w-full px-4">
-    <div className="text-center">
-      <div className="font-bold text-primary text-lg">{industry.stats.projects}</div>
-      <div className="text-muted-foreground">Projects</div>
-    </div>
+            {/* Title and Subtitle */}
+            <CardTitle className="text-lg font-semibold mb-1 text-center break-words text-primary">
+              {industry.title}
+            </CardTitle>
+            <CardDescription className="text-gray-500 text-sm text-center break-words">
+              {industry.subtitle}
+            </CardDescription>
+          </div>
 
-    <div className="text-center">
-      <div className="font-bold text-primary text-lg">{industry.stats.clients}</div>
-      <div className="text-muted-foreground">Clients</div>
-    </div>
+          {/* Stats and Button Container */}
+          <CardContent className="mt-4 flex flex-col gap-4 flex-1 px-4">
+            {/* Stats */}
+            <div className="flex flex-wrap justify-center items-center gap-3 w-full">
+              {[
+                { label: "Projects", value: industry.stats.projects },
+                { label: "Clients", value: industry.stats.clients },
+                { label: "Satisfaction", value: industry.stats.satisfaction },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex flex-col items-center bg-gray-100 rounded-full px-4 py-2 min-w-[80px]"
+                >
+                  <div className="font-bold text-primary text-base">{stat.value}</div>
+                  <div className="text-gray-500 text-xs">{stat.label}</div>
+                </div>
+              ))}
+            </div>
 
-    <div className="text-center">
-      <div className="font-bold text-primary text-lg">{industry.stats.satisfaction}</div>
-      <div className="text-muted-foreground">Satisfaction</div>
-    </div>
-  </div>
-
-  <Button
-    asChild
-    variant="outline"
-    size="sm"
-    className="w-full bg-transparent mt-6"
-  >
-    <Link href={`#${industry.id}`} className="flex justify-center items-center">
-      Learn More
-      <ArrowRight className="ml-2 h-4 w-4" />
-    </Link>
-  </Button>
-</CardContent>
-
+            {/* Learn More Button aligned at bottom */}
+            <div className="mt-auto">
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="w-full border-primary hover:bg-primary hover:text-white transition-all text-sm"
+              >
+                <Link href={`#${industry.id}`} className="flex justify-center items-center">
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </CardContent>
         </Card>
       ))}
     </div>
   </div>
 </section>
+
+
 
 
       {/* Detailed Industry Sections */}
@@ -634,57 +651,72 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">
-              Why Choose <span className="text-primary">Kundkund IT</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Our industry expertise and proven track record make us the ideal partner for your next software
-              development project.
-            </p>
+     {/* Why Choose Us */}
+<section className="py-20 relative overflow-hidden">
+  {/* Background Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 pointer-events-none" />
+
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    {/* Title Section */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 tracking-tight">
+        Why Choose <span className="text-primary">Kundkund IT</span>
+      </h2>
+      <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+        Our industry expertise and proven track record make us the ideal partner for your next software
+        development project.
+      </p>
+    </div>
+
+    {/* Cards Section */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {[
+        {
+          icon: Target,
+          title: "Industry Focus",
+          description: "Deep understanding of sector-specific challenges and requirements.",
+        },
+        {
+          icon: Shield,
+          title: "Compliance Ready",
+          description: "Built-in compliance for HIPAA, SOC 2, GDPR, and other industry standards.",
+        },
+        {
+          icon: Zap,
+          title: "Rapid Delivery",
+          description: "Agile methodology ensures fast time-to-market without compromising quality.",
+        },
+        {
+          icon: Users,
+          title: "Expert Team",
+          description: "Specialized developers with years of industry-specific experience.",
+        },
+      ].map((benefit, index) => (
+        <div
+          key={index}
+          className="group relative text-center bg-white/70 dark:bg-card/40 backdrop-blur-lg border border-border/40 shadow-lg rounded-2xl p-6 transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+        >
+          {/* Icon with Glow */}
+          <div className="relative w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse" />
+            <div className="w-16 h-16 bg-gradient-to-tr from-primary/20 to-primary/40 rounded-2xl flex items-center justify-center shadow-md relative z-10 group-hover:scale-110 transition-transform duration-300">
+              <benefit.icon className="h-8 w-8 text-primary animate-bounce-slow" />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Target,
-                title: "Industry Focus",
-                description: "Deep understanding of sector-specific challenges and requirements.",
-              },
-              {
-                icon: Shield,
-                title: "Compliance Ready",
-                description: "Built-in compliance for HIPAA, SOC 2, GDPR, and other industry standards.",
-              },
-              {
-                icon: Zap,
-                title: "Rapid Delivery",
-                description: "Agile methodology ensures fast time-to-market without compromising quality.",
-              },
-              {
-                icon: Users,
-                title: "Expert Team",
-                description: "Specialized developers with years of industry-specific experience.",
-              },
-            ].map((benefit, index) => (
-              <Card key={index} className="text-center bg-card/50 backdrop-blur border-0">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-pretty">{benefit.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {/* Title */}
+          <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+
+          {/* Description */}
+          <p className="text-muted-foreground leading-relaxed">
+            {benefit.description}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
