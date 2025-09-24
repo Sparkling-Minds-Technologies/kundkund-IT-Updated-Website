@@ -172,7 +172,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="relative z-10">
                 <Image
-                  src="/modern-software-development-team-working-on-innova.jpg"
+                  src="/Gemini_Generated_Image_wul7jewul7jewul7.png"
                   alt="KundKund IT - Software Development Team"  
                   width={600}
                   height={600}
@@ -290,49 +290,49 @@ export default function HomePage() {
   {
     title: "Healthcare",
     description: "HIPAA-compliant solutions, telemedicine platforms, and patient management systems.",
-    image: "/modern-healthcare-technology-and-medical-software-.jpg",
+    image: "/gemini-modern-healthcare-technology-and-medical-software-.png",
     stats: "15+ Healthcare Projects",
   },
   {
     title: "Real Estate",
     description: "PropTech solutions, property management platforms, and virtual tour applications.",
-    image: "/real-estate-technology-and-property-management-sof.jpg",
+    image: "/Gemini_real-estate-technology-and-property-management-sof.png",
     stats: "20+ PropTech Solutions",
   },
   {
     title: "Startups",
     description: "MVP development, rapid prototyping, and scalable architecture for growing businesses.",
-    image: "/startup-technology-and-innovative-business-softwar.jpg",
+    image: "/Gemini_startup-technology-and-innovative-business-softwar.png",
     stats: "30+ Startup Launches",
   },
   {
     title: "Manufacturing",
     description: "Smart factory solutions, IoT integration, and production optimization software.",
-    image: "/manufacturing.png",
+    image: "/Gemini_manufacturing.png",
     stats: "25+ Manufacturing Projects",
   },
   {
     title: "Logistics",
     description: "Supply chain management platforms, fleet tracking, and warehouse automation systems.",
-    image: "/logistics-services.jpg",
+    image: "/Gemini_logistics-services.png",
     stats: "20+ Logistics Solutions",
   },
   {
     title: "EdTech",
     description: "E-learning platforms, online classrooms, and digital education tools.",
-    image: "/EdTech.jpg",
+    image: "/Gemini_EdTech.png",
     stats: "18+ EdTech Projects",
   },
   {
     title: "FinTech",
     description: "Payment gateways, digital banking platforms, and financial analytics solutions.",
-    image: "/fintech-1.jpg",
+    image: "/Gemini_Generated_Image_tkuusvtkuusvtkuu.png",
     stats: "22+ FinTech Projects",
   },
   {
     title: "Technology Startups",
     description: "Innovation-driven solutions, product prototyping, and scalable software architecture.",
-    image: "/startuptechnlogy.jpg",
+    image: "/Gemini_startuptechnlogy.png",
     stats: "15+ Tech Startup Projects",
   }
 ]
@@ -653,7 +653,7 @@ Don’t just take our word for it—hear directly from our valued clients about 
                 industry: "Healthcare",
                 tech: ["Python", "TensorFlow", "React", "AWS"],
                 results: "60% faster diagnosis",
-                image: "/modern-healthcare-technology-and-medical-software-.jpg",
+                image: "/Gemini_modern-healthcare-technology-and-medical-software.png",
               },
               {
                 title: "PropTech Mobile App",
@@ -661,7 +661,7 @@ Don’t just take our word for it—hear directly from our valued clients about 
                 industry: "Real Estate",
                 tech: ["React Native", "Node.js", "MongoDB", "AR Kit"],
                 results: "300% user engagement",
-                image: "/real-estate-technology-and-property-management-sof.jpg",
+                image: "/Gemini_technology-and-property-management-sof.png",
               },
               {
                 title: "E-commerce Platform",
@@ -669,7 +669,7 @@ Don’t just take our word for it—hear directly from our valued clients about 
                 industry: "Retail",
                 tech: ["Next.js", "Stripe", "PostgreSQL", "Redis"],
                 results: "10M+ transactions",
-                image: "/startup-technology-and-innovative-business-softwar.jpg",
+                image: "/Gemini_E-commerce_Platform.png",
               },
             ].map((project, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300">

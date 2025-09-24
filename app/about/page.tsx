@@ -204,7 +204,7 @@ export default function AboutPage() {
 
             <div className="relative">
               <Image
-                src="/modern-software-development-team-working-on-innova.jpg"
+                src="/Gemini_Generated_Image_wul7jewul7jewul7.png"
                 alt="KundKund IT Team"
                 width={600}
                 height={400}

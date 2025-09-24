@@ -36,7 +36,7 @@ export default function ServicesPage() {
       subtitle: "Intelligent Solutions for Modern Challenges",
       description:
         "We build intelligent systems that learn, adapt, and deliver. AI/ML solutions made for real business impact.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80",
+      image: "Gemini_AIML.png",
       features: [
         "Custom AI Model Development",
         "Natural Language Processing",
@@ -60,7 +60,7 @@ export default function ServicesPage() {
       subtitle: "Modern, Scalable Web Applications",
       description:
         "Smart web development for modern Businesses. Fast, functional and future-ready.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
+      image: "/Gemini_Smart web_development.png",
       features: [
         "React & Next.js Development",
         "Progressive Web Apps (PWAs)",
@@ -84,7 +84,7 @@ export default function ServicesPage() {
       subtitle: "Native & Cross-Platform Mobile Solutions",
       description:
         "Apps that deliver more than just clicks. Smooth, smart, and ready for growth.",
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=80",
+      image: "/Gemini_Mobile App_Development.png",
       features: [
         "Native iOS & Android Development",
         "Cross-Platform Solutions",
@@ -108,7 +108,7 @@ export default function ServicesPage() {
   subtitle: "From Idea to Market-Ready Solutions",
   description:
     "Transforming concepts into market-ready products with innovation, speed, and precision.",
-  image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
+  image: "/Gemini_Product_Development.png",
   features: [
     "End-to-End Product Strategy",
     "MVP Design & Development",
@@ -132,7 +132,7 @@ export default function ServicesPage() {
   subtitle: "Robust, Scalable, and Secure Business Solutions",
   description:
     "Empowering enterprises with software that drives efficiency, innovation, and growth.",
-  image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
+  image: "/Gemini_enterprise-software.png",
   features: [
     "Custom ERP & CRM Solutions",
     "Legacy System Modernization",
@@ -156,7 +156,7 @@ export default function ServicesPage() {
   subtitle: "Cloud-First, Subscription-Based Digital Solutions",
   description:
     "Scalable SaaS solutions that deliver seamless experiences and recurring value.",
-  image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+  image: "/Gemini_saas-product.png",
   features: [
     "Multi-Tenant Architecture",
     "Subscription & Billing Integration",

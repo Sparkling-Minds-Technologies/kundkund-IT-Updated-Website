@@ -36,7 +36,7 @@ export default function IndustriesPage() {
       subtitle: "HIPAA-Compliant Healthcare Solutions",
       description:
         "Transform patient care with secure, compliant healthcare technology solutions that improve outcomes and streamline operations.",
-      image: "/modern-healthcare-technology-and-medical-software-.jpg",
+      image: "/gemini-modern-healthcare-technology-and-medical-software-.png",
       stats: {
         projects: "15+",
         clients: "8",
@@ -85,7 +85,7 @@ export default function IndustriesPage() {
       subtitle: "PropTech Innovation & Property Management",
       description:
         "Revolutionize real estate operations with cutting-edge PropTech solutions that enhance property management and customer experiences.",
-      image: "/real-estate-technology-and-property-management-sof.jpg",
+      image: "/Gemini_real-estate-technology-and-property-management-sof.png",
       stats: {
         projects: "20+",
         clients: "12",
@@ -133,7 +133,7 @@ export default function IndustriesPage() {
       subtitle: "MVP Development & Rapid Scaling",
       description:
         "Accelerate your startup journey with rapid MVP development, scalable architecture, and growth-focused technology solutions.",
-      image: "/startup-technology-and-innovative-business-softwar.jpg",
+      image: "/Gemini_startup-technology-and-innovative-business-softwar.png",
       stats: {
         projects: "30+",
         clients: "25",
@@ -180,7 +180,7 @@ export default function IndustriesPage() {
   subtitle: "Smart Production & Industry 4.0, Advanced Manufacturing,",
   description:
     "Transform your manufacturing operations with intelligent automation, optimized workflows, and advanced Industry 4.0 solutions.",
-  image: "/manufacturing.png",
+  image: "/Gemini_manufacturing.png",
   stats: {
     projects: "50+",
     clients: "40",
@@ -233,7 +233,7 @@ export default function IndustriesPage() {
   subtitle: "Efficient Supply Chain & Delivery Solutions",
   description:
     "Optimize your logistics operations with smart supply chain management, real-time tracking, and streamlined delivery solutions.",
-  image: "/logistics-services.jpg", 
+  image: "/Gemini_logistics-services.png", 
   stats: {
     projects: "40+",
     clients: "35",
@@ -287,7 +287,7 @@ export default function IndustriesPage() {
   subtitle: "Innovative Learning & Digital Education",
   description:
     "Empower education with interactive learning platforms, AI-driven content, and seamless online learning experiences.",
-  image: "/EdTech.jpg", // Place the image in your public/images folder
+  image: "/Gemini_EdTech.png", // Place the image in your public/images folder
   stats: {
     projects: "35+",
     clients: "30",
@@ -341,7 +341,7 @@ export default function IndustriesPage() {
   subtitle: "Smart Financial Solutions & Digital Banking",
   description:
     "Revolutionize financial services with secure digital payments, AI-driven analytics, and innovative banking solutions.",
-  image: "/fintech-1.jpg", 
+  image: "/Gemini_Generated_Image_tkuusvtkuusvtkuu.png", 
   stats: {
     projects: "45+",
     clients: "38",
@@ -395,7 +395,7 @@ export default function IndustriesPage() {
   subtitle: "Innovation & Rapid Growth Solutions",
   description:
     "Accelerate your technology startup with scalable solutions, innovative products, and growth-focused strategies.",
-  image: "/startuptechnlogy.jpg",
+  image: "/Gemini_startuptechnlogy.png",
   stats: {
     projects: "30+",
     clients: "25",

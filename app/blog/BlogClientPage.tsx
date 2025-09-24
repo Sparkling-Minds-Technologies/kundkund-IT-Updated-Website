@@ -28,7 +28,7 @@ const blogPosts = [
     category: "AI & Machine Learning",
     tags: ["AI", "Healthcare", "Machine Learning", "Innovation"],
     image:
-      "https://assets.primotech.com/wp-content/uploads/2024/08/Ai-In-Healthcare-3.png", // AI & Healthcare
+      "/Gemini_ai-engineer-data-scientist.png", // AI & Healthcare
     featured: true,
   },
   {
@@ -47,7 +47,7 @@ const blogPosts = [
     category: "Web Development",
     tags: ["Next.js", "Performance", "React", "Optimization"],
     image:
-      "https://www.brainvire.com/blog/wp-content/uploads/2019/10/your-ultimate-guide-to-fullstack-web-development.jpg", // Web development / coding
+      "Gemini_Next.js_Performance_Optimization.png", // Web development / coding
     featured: false,
   },
   {
@@ -66,7 +66,7 @@ const blogPosts = [
     category: "Industry Insights",
     tags: ["PropTech", "Real Estate", "Innovation", "Technology"],
     image:
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80", // Real estate / technology
+      "/Gemini_Web_development.png", // Real estate / technology
     featured: true,
   },
   {
@@ -85,7 +85,7 @@ const blogPosts = [
     category: "Cloud Solutions",
     tags: ["Cloud Security", "Enterprise", "DevOps", "Security"],
     image:
-      "https://www.secion.de/assets/images/2/vernachlaessigte_cloud_security-4edd193b.jpeg", // Cloud / security / enterprise
+      "/Gemini_cloud-security-best-practices.png", // Cloud / security / enterprise
     featured: false,
   },
   {
@@ -104,7 +104,7 @@ const blogPosts = [
     category: "Design",
     tags: ["UX Design", "Healthcare", "Accessibility", "User Experience"],
     image:
-      "https://bs-uploads.toptal.io/blackfish-uploads/components/open_graph_image/10503629/og_image/optimized/0807_Elegant-Healthcare-UX-The-Missing-Piece-in-Medical-Devices_Social-d3050c1e7104bf21c0d5a4728d8b06ec.png", // UX / healthcare app design
+      "/Gemini_ux-design-healthcare-apps.png", // UX / healthcare app design
     featured: false,
   },
   {
@@ -123,7 +123,7 @@ const blogPosts = [
     category: "Startup Insights",
     tags: ["MVP", "Startups", "Product Development", "Strategy"],
     image:
-      "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80", // Startups / development
+      "/Gemini_startup-mvp-development-guide.png", // Startups / development
     featured: false,
   },
 ];
