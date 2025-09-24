@@ -268,7 +268,7 @@ export default function ContactPageClient() {
                         />
                       </div>
                     </div>
-
+{/* 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="service" className="block text-sm font-medium mb-2">
@@ -299,7 +299,7 @@ export default function ContactPageClient() {
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="under-25k">Under $25,000</SelectItem>
-                            <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
+                            <SelectItem value="25k-50k">₹25,000 - $50,000</SelectItem>
                             <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
                             <SelectItem value="100k-250k">$100,000 - $250,000</SelectItem>
                             <SelectItem value="over-250k">Over $250,000</SelectItem>
@@ -307,7 +307,7 @@ export default function ContactPageClient() {
                           </SelectContent>
                         </Select>
                       </div>
-                    </div>
+                    </div> */}
 
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium mb-2">
