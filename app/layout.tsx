@@ -7,6 +7,8 @@ import "./globals.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Suspense } from "react"
+import { GlobalConsultationModal } from "@/components/ConsultationModal"
+import { ConsultationModalProvider } from "./context/GlobalConsultationModal.tsx"
 
 export const metadata: Metadata = {
   title: "KundKund IT - Innovative Software Development",
@@ -32,9 +34,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-    generator: 'v0.app',
+  generator: 'v0.app',
   icons: {
-    icon: "/favicon.png",  
+    icon: "/favicon.png",
   },
 }
 
@@ -47,9 +49,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <Suspense fallback={<div>Loading...</div>}>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          {/* Wrap the entire app in the Modal Provider */}
+          <ConsultationModalProvider>
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+
+            {/* Global Modal always rendered on top */}
+            <GlobalConsultationModal />
+          </ConsultationModalProvider>
         </Suspense>
         <Analytics />
       </body>

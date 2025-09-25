@@ -1,281 +1,140 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight, Clock } from "lucide-react"
+
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, Calendar, ArrowRight, Clock } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
 
-// Sample blog posts data with Unsplash images
+// --- Blog Data ---
 const blogPosts = [
   {
     slug: "ai-healthcare-revolution-2025",
     title: "How AI is Revolutionizing Healthcare in 2025",
     excerpt:
       "Explore the latest AI applications transforming patient care, from diagnostic imaging to personalized treatment plans.",
-    content: "Full blog content would go here...",
-    author: {
-      name: "David Kim",
-      role: "Senior AI Engineer",
-      avatar: "/ai-engineer-data-scientist.png",
-    },
-    publishedAt: "2025-09-15",
-    readTime: "8 min read",
     category: "AI & Machine Learning",
-    tags: ["AI", "Healthcare", "Machine Learning", "Innovation"],
-    image:
-      "/Gemini_ai-engineer-data-scientist.png", // AI & Healthcare
-    featured: true,
+    readTime: "6 min read",
+    image: "/Gemini_ai-healthcare-revolution-2025.png",
+    author: { name: "KundKund IT Team",  },
+    publishedAt: "2025-08-15",
+    content: `<h2>AI in Healthcare</h2><p>AI is changing healthcare...</p>`,
   },
   {
-    slug: "nextjs-performance-optimization",
-    title: "Next.js Performance Optimization: Best Practices for 2025",
+     slug: "cloud-computing-trends-2025",
+    title: "Top Cloud Computing Trends in 2025",
     excerpt:
-      "Learn advanced techniques to optimize your Next.js applications for better performance and user experience.",
-    content: "Full blog content would go here...",
-    author: {
-      name: "Michael Johnson",
-      role: "Head of Engineering",
-      avatar: "/senior-software-engineer-male.png",
-    },
-    publishedAt: "2025-09-10",
-    readTime: "12 min read",
-    category: "Web Development",
-    tags: ["Next.js", "Performance", "React", "Optimization"],
-    image:
-      "Gemini_Next.js_Performance_Optimization.png", // Web development / coding
-    featured: false,
+      "From serverless architectures to hybrid cloud adoption, discover the key cloud innovations shaping the industry.",
+    category: "Cloud & DevOps",
+    readTime: "5 min read",
+    image: "/Gemini_cloud-computing-trends-2025.png",
+    author: { name: "KundKund IT Team",  },   //avatar: "/avatar2.png"
+    publishedAt: "2025-08-05",
+    content: `<h2>Cloud Evolution</h2><p>Cloud computing continues...</p>`,
   },
   {
-    slug: "proptech-trends-real-estate",
-    title: "PropTech Trends Shaping the Future of Real Estate",
+       slug: "future-of-software-development-2025",
+    title: "The Future of Software Development in 2025",
     excerpt:
-      "Discover how technology is transforming property management, virtual tours, and real estate transactions.",
-    content: "Full blog content would go here...",
-    author: {
-      name: "Sarah Rodriguez",
-      role: "CTO & Co-Founder",
-      avatar: "/female-cto-software-engineer.png",
-    },
-    publishedAt: "2025-09-15",
-    readTime: "10 min read",
-    category: "Industry Insights",
-    tags: ["PropTech", "Real Estate", "Innovation", "Technology"],
-    image:
-      "/Gemini_Web_development.png", // Real estate / technology
-    featured: true,
+      "Explore how low-code platforms, AI coding assistants, and agile practices are reshaping software engineering.",
+    category: "Software Development",
+    readTime: "7 min read",
+    image: "/Gemini_future-of-software-development.png",
+    author: { name: "KundKund IT Team", },
+    publishedAt: "2025-07-20",
+    content: `<h2>Next-Gen Software</h2><p>The software world is...</p>`,
   },
   {
-    slug: "cloud-security-best-practices",
-    title: "Cloud Security Best Practices for Enterprise Applications",
+    slug: "cybersecurity-best-practices",
+    title: "Cybersecurity Best Practices for Modern Businesses",
     excerpt:
-      "Essential security measures every enterprise should implement when moving to the cloud infrastructure.",
-    content: "Full blog content would go here...",
-    author: {
-      name: "Alex Chen",
-      role: "CEO & Co-Founder",
-      avatar: "/professional-ceo-tech-leader.png",
-    },
-    publishedAt: "2025-8-28",
-    readTime: "15 min read",
-    category: "Cloud Solutions",
-    tags: ["Cloud Security", "Enterprise", "DevOps", "Security"],
-    image:
-      "/Gemini_cloud-security-best-practices.png", // Cloud / security / enterprise
-    featured: false,
+      "Learn how to protect your business from cyber threats with the latest security frameworks and AI-powered defenses.",
+    category: "Cybersecurity",
+    readTime: "8 min read",
+    image: "/Gemini_cybersecurity-best-practices.png",
+    author: { name: "KundKund IT Team",  },
+    publishedAt: "2025-07-10",
+    content: `<h2>Cybersecurity 2025</h2><p>Modern threats require...</p>`,
   },
   {
-    slug: "ux-design-healthcare-apps",
-    title: "UX Design Principles for Healthcare Applications",
+     slug: "web3-and-decentralized-applications",
+    title: "Web3 and the Rise of Decentralized Applications",
     excerpt:
-      "How to create user-friendly healthcare interfaces that prioritize patient safety and accessibility.",
-    content: "Full blog content would go here...",
-    author: {
-      name: "Emily Davis",
-      role: "Lead UI/UX Designer",
-      avatar: "/female-ui-ux-designer.png",
-    },
-    publishedAt: "2025-09-20",
-    readTime: "9 min read",
-    category: "Design",
-    tags: ["UX Design", "Healthcare", "Accessibility", "User Experience"],
-    image:
-      "/Gemini_ux-design-healthcare-apps.png", // UX / healthcare app design
-    featured: false,
+      "Discover how blockchain and decentralized technologies are shaping the internet's next evolution.",
+    category: "Web3 & Blockchain",
+    readTime: "6 min read",
+    image: "/Gemini_web3-and-decentralized-applications.png",
+    author: { name: "KundKund IT Team",  },
+    publishedAt: "2025-06-28",
+    content: `<h2>Decentralization</h2><p>Web3 introduces...</p>`,
   },
   {
-    slug: "startup-mvp-development-guide",
-    title: "The Complete Guide to MVP Development for Startups",
+    slug: "generative-ai-in-business",
+    title: "Generative AI in Business: Opportunities and Risks",
     excerpt:
-      "Step-by-step approach to building a minimum viable product that validates your business idea effectively.",
-    content: "Full blog content would go here...",
-    author: {
-      name: "Lisa Thompson",
-      role: "Project Manager",
-      avatar: "/female-project-manager.png",
-    },
-    publishedAt: "2025-09-15",
-    readTime: "11 min read",
-    category: "Startup Insights",
-    tags: ["MVP", "Startups", "Product Development", "Strategy"],
-    image:
-      "/Gemini_startup-mvp-development-guide.png", // Startups / development
-    featured: false,
+      "From content creation to automation, explore how businesses can leverage generative AI responsibly.",
+    category: "AI & Machine Learning",
+    readTime: "5 min read",
+    image: "/Gemini_generative-ai-in-business.png",
+    author: { name: "KundKund IT Team", },
+    publishedAt: "2025-06-15",
+    content: `<h2>Generative AI</h2><p>Generative AI is...</p>`,
   },
-];
-
-const categories = [
-  "All Categories",
-  "AI & Machine Learning",
-  "Web Development",
-  "Industry Insights",
-  "Cloud Solutions",
-  "Design",
-  "Startup Insights",
 ]
 
 export default function BlogClientPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All Categories")
 
+  const categories = ["All Categories", ...new Set(blogPosts.map((post) => post.category))]
+
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesCategory = selectedCategory === "All Categories" || post.category === selectedCategory
-
     return matchesSearch && matchesCategory
   })
 
-  const featuredPosts = filteredPosts.filter((post) => post.featured)
-  const regularPosts = filteredPosts.filter((post) => !post.featured)
+  const regularPosts = filteredPosts
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-background via-background to-muted/30 py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto space-y-6">
-            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-              KundKund IT Blog
-            </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold text-balance">
-              Insights & <span className="text-primary">Innovation</span>
-            </h1>
-            <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
-              Stay updated with the latest trends in software development, AI, and technology. Our team shares insights,
-              best practices, and industry knowledge to help you stay ahead.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Search and Filter */}
-      <section className="py-12 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Search articles..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger className="w-full md:w-48">
-                <SelectValue placeholder="Select category" />
-              </SelectTrigger>
-              <SelectContent>
-                {categories.map((category) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12">
-              <h2 className="text-3xl font-bold mb-4">Featured Articles</h2>
-              <p className="text-muted-foreground">Our most popular and impactful content</p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {featuredPosts.map((post, index) => (
-                <Card key={post.slug} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={post.image || "/placeholder.svg"}
-                      alt={post.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">Featured</Badge>
-                  </div>
-                  <CardHeader>
-                    <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-2">
-                      <Badge variant="outline">{post.category}</Badge>
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <Clock className="h-4 w-4" />
-                        <span>{post.readTime}</span>
-                      </div>
-                    </div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                    </CardTitle>
-                    <CardDescription className="text-pretty">{post.excerpt}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <Image
-                          src={post.author.avatar || "/placeholder.svg"}
-                          alt={post.author.name}
-                          width={40}
-                          height={40}
-                          className="rounded-full"
-                        />
-                        <div>
-                          <div className="font-medium text-sm">{post.author.name}</div>
-                          <div className="text-xs text-muted-foreground">{post.author.role}</div>
-                        </div>
-                      </div>
-                      <Button asChild variant="ghost" size="sm">
-                        <Link href={`/blog/${post.slug}`}>
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+    <div>
+      {/* Hero */}
+      <section className="relative bg-gradient-to-r from-primary/10 via-primary/5 to-transparent py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-balance">Insights & Resources</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            Stay updated with the latest insights on software development, AI, technology trends, and industry best practices.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
+            <Input
+              type="text"
+              placeholder="Search articles..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="bg-background"
+            />
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="px-4 py-2 border rounded-lg"
+            >
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
               ))}
-            </div>
+            </select>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* Regular Posts */}
+      {/* Blog Grid */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
@@ -287,7 +146,7 @@ export default function BlogClientPage() {
 
           {regularPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {regularPosts.map((post) => (
+              {regularPosts.slice(0, 6).map((post) => (
                 <Card key={post.slug} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -314,13 +173,13 @@ export default function BlogClientPage() {
                   <CardContent>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <Image
+                        {/* <Image
                           src={post.author.avatar || "/placeholder.svg"}
                           alt={post.author.name}
                           width={32}
                           height={32}
                           className="rounded-full"
-                        />
+                        /> */}
                         <div>
                           <div className="font-medium text-sm">{post.author.name}</div>
                           <div className="text-xs text-muted-foreground">
@@ -356,7 +215,7 @@ export default function BlogClientPage() {
         </div>
       </section>
 
-      {/* Newsletter Signup */}
+      {/* Newsletter */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="bg-primary text-primary-foreground border-0">
