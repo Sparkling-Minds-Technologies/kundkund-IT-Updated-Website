@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, phone, project } = await req.json();
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -17,17 +17,31 @@ export async function POST(req: Request) {
       },
     });
 
+    // formatted email body
+    const emailText = `
+Name: ${name}
+
+Email: ${email}
+
+Phone: ${phone}
+
+Project Details: ${project}
+    `;
+
     await transporter.sendMail({
       from: `"${name}" <${process.env.SMTP_USER}>`,
       to: process.env.TO_EMAIL,
       subject: `New message from ${name}`,
-      text: message,
+      text: emailText,
       replyTo: email,
     });
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error: any) {
     console.error("Error in send-email route:", error);
-    return new Response(JSON.stringify({ success: false, error: error.message }), { status: 500 });
+    return new Response(
+      JSON.stringify({ success: false, error: error.message }),
+      { status: 500 }
+    );
   }
 }
