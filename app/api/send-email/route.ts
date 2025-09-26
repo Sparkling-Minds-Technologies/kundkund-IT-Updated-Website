@@ -7,41 +7,71 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
-      secure: process.env.SMTP_SECURE === "true", // false for port 587
+      secure: process.env.SMTP_SECURE === "true",
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      tls: {
-        rejectUnauthorized: false, // 👈 fixes "self-signed certificate" error
-      },
+      tls: { rejectUnauthorized: false },
     });
 
-    // formatted email body
-    const emailText = `
+    // -----------------------
+    // 📩 Message to Admin
+    // -----------------------
+    const adminMessage = `
+New Free Consultation Request:
+
 Name: ${name}
-
 Email: ${email}
-
 Phone: ${phone}
-
 Project Details: ${project}
     `;
 
     await transporter.sendMail({
       from: `"${name}" <${process.env.SMTP_USER}>`,
       to: process.env.TO_EMAIL,
-      subject: `New message from ${name}`,
-      text: emailText,
+      subject: `📥 New Free Consultation from ${name}`,
+      text: adminMessage,
       replyTo: email,
     });
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
+    // -----------------------
+    // 📩 Auto-response to Sender
+    // -----------------------
+    const senderMessage = `
+Hi ${name},
+
+Thank you for requesting a free consultation! 🎉  
+Our team has received your details and will get back to you shortly.
+
+Here’s a copy of what you submitted:
+--------------------------------------
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Project Details: ${project}
+--------------------------------------
+
+Best regards,  
+The Admin Team
+    `;
+
+    await transporter.sendMail({
+      from: `"Admin Team" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: "✅ We received your Free Consultation request",
+      text: senderMessage,
+    });
+
+    return new Response(
+      JSON.stringify({ success: true }),
+      { status: 200, headers: { "Content-Type": "application/json" } }
+    );
   } catch (error: any) {
-    console.error("Error in send-email route:", error);
+    console.error("Error in send-consultation route:", error);
     return new Response(
       JSON.stringify({ success: false, error: error.message }),
-      { status: 500 }
+      { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
 }

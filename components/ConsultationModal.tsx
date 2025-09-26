@@ -21,7 +21,7 @@ export function GlobalConsultationModal() {
     setIsSubmitting(true)
     setMessage("")
     try {
-      const res = await fetch("/api/send-email", {   // ✅ matches our API route
+      const res = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -33,15 +33,15 @@ export function GlobalConsultationModal() {
       } else {
         setMessage(data.error || "❌ Something went wrong.")
       }
-    } catch (err) {
+    } catch {
       setMessage("❌ Failed to connect to server.")
     }
     setIsSubmitting(false)
   }
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4 overflow-y-auto">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md relative shadow-lg">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4">
+      <div className="bg-white rounded-lg p-6 w-full max-w-md relative shadow-lg max-h-screen overflow-y-auto">
         <button
           className="absolute top-3 right-3 text-gray-500 hover:text-black"
           onClick={closeModal}
@@ -93,7 +93,15 @@ export function GlobalConsultationModal() {
             {isSubmitting ? "Sending..." : "Submit"}
           </Button>
         </form>
-        {message && <p className="mt-2 text-sm text-green-600">{message}</p>}
+        {message && (
+          <p
+            className={`mt-2 text-sm ${
+              message.startsWith("✅") ? "text-green-600" : "text-red-600"
+            }`}
+          >
+            {message}
+          </p>
+        )}
       </div>
     </div>
   )

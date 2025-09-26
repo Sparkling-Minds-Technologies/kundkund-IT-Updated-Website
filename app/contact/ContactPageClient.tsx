@@ -49,29 +49,40 @@ export default function ContactPageClient() {
     email: "",
     company: "",
     phone: "",
-    service: "",
-    budget: "",
-    message: "",
-    newsletter: false,
+    project: "", // ✅ changed from message → project
   })
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
-  const handleInputChange = (field: string, value: string | boolean) => {
+ const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+  try {
+    const response = await fetch("/api/send-message", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    if (response.ok) {
+      setIsSubmitted(true);
+    } else {
+      console.error("Failed to send message");
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
   }
+
+  setIsSubmitting(false);
+};
+
 
   const offices = [
     {
@@ -201,158 +212,108 @@ export default function ContactPageClient() {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div>
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-4">Send Us a Message</h2>
-                <p className="text-muted-foreground">
-                  Fill out the form below and we'll get back to you within 24 hours to discuss your project needs.
-                </p>
-              </div>
+            
+           {/* Contact Form */}
+<div>
+  <div className="mb-8">
+    <h2 className="text-3xl font-bold mb-4">Send Us a Message</h2>
+    <p className="text-muted-foreground">
+      Fill out the form below and we'll get back to you within 24 hours to discuss your project needs.
+    </p>
+  </div>
 
-              <Card>
-                <CardContent className="p-6">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium mb-2">
-                          Full Name *
-                        </label>
-                        <Input
-                          id="name"
-                          type="text"
-                          required
-                          value={formData.name}
-                          onChange={(e) => handleInputChange("name", e.target.value)}
-                          placeholder=""
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium mb-2">
-                          Email Address *
-                        </label>
-                        <Input
-                          id="email"
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) => handleInputChange("email", e.target.value)}
-                          placeholder=""
-                        />
-                      </div>
-                    </div>
+  <Card>
+    <CardContent className="p-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium mb-2">
+              Full Name *
+            </label>
+            <Input
+              id="name"
+              type="text"
+              required
+              value={formData.name}
+              onChange={(e) => handleInputChange("name", e.target.value)}
+              placeholder=""
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">
+              Email Address *
+            </label>
+            <Input
+              id="email"
+              type="email"
+              required
+              value={formData.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              placeholder=""
+            />
+          </div>
+        </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="company" className="block text-sm font-medium mb-2">
-                          Company Name
-                        </label>
-                        <Input
-                          id="company"
-                          type="text"
-                          value={formData.company}
-                          onChange={(e) => handleInputChange("company", e.target.value)}
-                          placeholder=""
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                          Phone Number
-                        </label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => handleInputChange("phone", e.target.value)}
-                          placeholder=""
-                        />
-                      </div>
-                    </div>
-{/* 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="service" className="block text-sm font-medium mb-2">
-                          Service Interested In
-                        </label>
-                        <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a service" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="ai-ml">AI & Machine Learning</SelectItem>
-                            <SelectItem value="web-dev">Web Development</SelectItem>
-                            <SelectItem value="mobile-apps">Mobile Applications</SelectItem>
-                            <SelectItem value="cloud-solutions">Cloud Solutions</SelectItem>
-                            <SelectItem value="ui-ux">UI/UX Design</SelectItem>
-                            <SelectItem value="qa-testing">QA & Testing</SelectItem>
-                            <SelectItem value="consultation">General Consultation</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div>
-                        <label htmlFor="budget" className="block text-sm font-medium mb-2">
-                          Project Budget
-                        </label>
-                        <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select budget range" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="under-25k">Under $25,000</SelectItem>
-                            <SelectItem value="25k-50k">₹25,000 - $50,000</SelectItem>
-                            <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
-                            <SelectItem value="100k-250k">$100,000 - $250,000</SelectItem>
-                            <SelectItem value="over-250k">Over $250,000</SelectItem>
-                            <SelectItem value="discuss">Prefer to discuss</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="company" className="block text-sm font-medium mb-2">
+              Company Name
+            </label>
+            <Input
+              id="company"
+              type="text"
+              value={formData.company}
+              onChange={(e) => handleInputChange("company", e.target.value)}
+              placeholder=""
+            />
+          </div>
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium mb-2">
+              Phone Number
+            </label>
+            <Input
+              id="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => handleInputChange("phone", e.target.value)}
+              placeholder=""
+            />
+          </div>
+        </div>
 
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        Project Details *
-                      </label>
-                      <Textarea
-                        id="message"
-                        required
-                        rows={5}
-                        value={formData.message}
-                        onChange={(e) => handleInputChange("message", e.target.value)}
-                        placeholder=""
-                      />
-                    </div>
+        <div>
+          <label htmlFor="project" className="block text-sm font-medium mb-2">
+            Project Details *
+          </label>
+          <Textarea
+            id="project"
+            required
+            rows={5}
+            value={formData.project}
+            onChange={(e) => handleInputChange("project", e.target.value)}
+            placeholder=""
+          />
+        </div>
 
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="newsletter"
-                        checked={formData.newsletter}
-                        onCheckedChange={(checked) => handleInputChange("newsletter", checked as boolean)}
-                      />
-                      <label htmlFor="newsletter" className="text-sm text-muted-foreground">
-                        Subscribe to our newsletter for the latest insights and updates
-                      </label>
-                    </div>
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full bg-primary hover:bg-primary/90"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        "Sending Message..."
-                      ) : (
-                        <>
-                          Send Message
-                          <Send className="ml-2 h-5 w-5" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full bg-primary hover:bg-primary/90"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            "Sending Message..."
+          ) : (
+            <>
+              Send Message
+              <Send className="ml-2 h-5 w-5" />
+            </>
+          )}
+        </Button>
+      </form>
+    </CardContent>
+  </Card>
+</div>
 
             {/* Contact Information */}
             <div className="space-y-8">
