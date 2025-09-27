@@ -31,10 +31,10 @@ export function GlobalConsultationModal() {
         setMessage("✅ Thank you! Your request has been sent.")
         setFormData({ name: "", email: "", phone: "", project: "" })
       } else {
-        setMessage(data.error || "❌ Something went wrong.")
+        setMessage(data.error || "Something went wrong.")
       }
     } catch {
-      setMessage("❌ Failed to connect to server.")
+      setMessage(" Failed to connect to server.")
     }
     setIsSubmitting(false)
   }

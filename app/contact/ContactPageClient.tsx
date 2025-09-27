@@ -49,39 +49,38 @@ export default function ContactPageClient() {
     email: "",
     company: "",
     phone: "",
-    project: "", // ✅ changed from message → project
+    project: "", // ✅ keep project
   })
 
-   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [error, setError] = useState("")
 
- const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+    e.preventDefault()
+    setIsSubmitting(true)
 
-  try {
-    const response = await fetch("/api/send-message", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("/api/send-contact", { // ✅ correct endpoint
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
 
-    if (response.ok) {
-      setIsSubmitted(true);
-    } else {
-      console.error("Failed to send message");
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        console.error("Failed to send message")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
     }
-  } catch (error) {
-    console.error("Error submitting form:", error);
-  }
 
-  setIsSubmitting(false);
-};
+    setIsSubmitting(false)
+  }
 
 
   const offices = [
