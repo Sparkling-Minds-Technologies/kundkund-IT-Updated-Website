@@ -28,7 +28,7 @@ export function GlobalConsultationModal() {
       })
       const data = await res.json()
       if (res.ok) {
-        setMessage("✅ Thank you! Your request has been sent.")
+        setMessage("Thank you! Your request has been sent.")
         setFormData({ name: "", email: "", phone: "", project: "" })
       } else {
         setMessage(data.error || "Something went wrong.")

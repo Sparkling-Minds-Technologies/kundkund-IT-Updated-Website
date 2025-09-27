@@ -49,7 +49,7 @@ export default function ContactPageClient() {
     email: "",
     company: "",
     phone: "",
-    project: "", // ✅ keep project
+    project: "", 
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -64,7 +64,7 @@ export default function ContactPageClient() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/send-contact", { // ✅ correct endpoint
+      const response = await fetch("/api/send-contact", { 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

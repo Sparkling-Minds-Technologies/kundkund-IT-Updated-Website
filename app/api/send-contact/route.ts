@@ -55,7 +55,7 @@ The Admin Team
     await transporter.sendMail({
       from: `"Admin" <${process.env.SMTP_USER}>`,
       to: email,
-      subject: "We received your message ✅",
+      subject: "We received your message",
       text: senderMessage,
     })
 

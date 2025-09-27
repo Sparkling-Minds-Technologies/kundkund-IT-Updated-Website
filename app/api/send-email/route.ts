@@ -30,7 +30,7 @@ Project Details: ${project}
     await transporter.sendMail({
       from: `"${name}" <${process.env.SMTP_USER}>`,
       to: process.env.TO_EMAIL,
-      subject: `📥 New Free Consultation from ${name}`,
+      subject: `New Free Consultation from ${name}`,
       text: adminMessage,
       replyTo: email,
     });
@@ -41,7 +41,7 @@ Project Details: ${project}
     const senderMessage = `
 Hi ${name},
 
-Thank you for requesting a free consultation! 🎉  
+Thank you for requesting a free consultation!  
 Our team has received your details and will get back to you shortly.
 
 Here’s a copy of what you submitted:
