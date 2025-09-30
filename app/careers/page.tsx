@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import Link from "next/link"
+import { Card, CardContent } from "@/components/ui/card"
 
 const jobs = [
   {
@@ -229,19 +230,28 @@ export default function CareersPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
-          <h3 className="text-2xl font-semibold">We’d love to hear from you!</h3>
-          <p className="mt-2 text-slate-600">
-            For queries, hiring, or partnerships — reach out to us.
-          </p>
-          <div className="mt-6">
-            <a href="/contact" className="px-6 py-2 bg-primary text-white rounded-md">
-              Talk to us
-            </a>
-          </div>
+     {/* CTA */}
+<section className="py-20">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <Card className="bg-primary text-primary-foreground border-0">
+      <CardContent className="p-12 text-center">
+        <h3 className="text-3xl font-bold mb-4">We’d love to hear from you!</h3>
+        <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+          For queries, hiring, or partnerships — reach out to us.
+        </p>
+        <div>
+          <a
+            href="/contact"
+            className="px-6 py-2 rounded-md bg-background text-foreground hover:bg-background/90 inline-block"
+          >
+            Talk to us
+          </a>
         </div>
-      </section>
+      </CardContent>
+    </Card>
+  </div>
+</section>
+
     </main>
   )
 }
