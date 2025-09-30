@@ -2,7 +2,7 @@ import nodemailer from "nodemailer"
 
 export async function POST(req: Request) {
   try {
-    const { name, email, company, phone, project } = await req.json() // ✅ project
+    const { name, email, company, phone, project } = await req.json() 
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -36,7 +36,7 @@ Project Details: ${project}
     const senderMessage = `
 Hi ${name},
 
-Thank you for contacting us! ✅  
+Thank you for contacting us!   
 We’ve received your message and our team will get back to you soon.
 
 Here’s a copy of your submission:

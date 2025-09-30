@@ -28,15 +28,15 @@ Project Details: ${project}
     `;
 
     await transporter.sendMail({
-      from: `"Website Contact Form" <${process.env.SMTP_USER}>`, // ✅ fixed
-      to: process.env.TO_EMAIL, // ✅ admin only
+      from: `"Website Contact Form" <${process.env.SMTP_USER}>`, //fixed
+      to: process.env.TO_EMAIL, //  admin only
       subject: `New Free Consultation from ${name}`,
       text: adminMessage,
-      replyTo: email, // ✅ lets admin reply directly to user
+      replyTo: email, //  lets admin reply directly to user
     });
 
     // -----------------------
-    // 📩 Auto-response to Sender
+    // Auto-response to Sender
     // -----------------------
     const senderMessage = `
 Hi ${name},
@@ -57,9 +57,9 @@ The Admin Team
     `;
 
     await transporter.sendMail({
-      from: `"Admin Team" <${process.env.SMTP_USER}>`, // ✅ always your Gmail
-      to: email, // ✅ goes to the user
-      subject: "✅ We received your Free Consultation request",
+      from: `"Admin Team" <${process.env.SMTP_USER}>`, // always your Gmail
+      to: email, //  goes to the user
+      subject: "We received your Free Consultation request",
       text: senderMessage,
     });
 

@@ -16,6 +16,7 @@ export function Header() {
     { name: "Industries", href: "/industries" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
+    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ]
 
@@ -26,7 +27,12 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="relative h-20 w-42">
-              <Image src="/kundkund-IT-Logos-1.png" alt="Logo" fill style={{ objectFit: "contain" }} />
+              <Image
+                src="/kundkund-IT-Logos-1.png"
+                alt="Logo"
+                fill
+                style={{ objectFit: "contain" }}
+              />
             </div>
           </Link>
 
@@ -44,15 +50,22 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button onClick={openModal} className="bg-primary hover:bg-primary/90 flex items-center">
+          <div className="hidden md:flex items-center space-x-4 ml-6">
+            {/* 👆 Added ml-6 for extra gap between "Contact" and button */}
+            <Button
+              onClick={openModal}
+              className="bg-primary hover:bg-primary/90 flex items-center"
+            >
               <Phone className="mr-2 h-4 w-4" />
               Get Free Consultation
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
@@ -72,7 +85,10 @@ export function Header() {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button onClick={openModal} className="w-full bg-primary hover:bg-primary/90 flex items-center">
+                <Button
+                  onClick={openModal}
+                  className="w-full bg-primary hover:bg-primary/90 flex items-center"
+                >
                   <Phone className="mr-2 h-4 w-4" />
                   Get Free Consultation
                 </Button>

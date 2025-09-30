@@ -20,7 +20,7 @@ import {
   Target,
   Code,
   Server,
-HelpCircle,
+// HelpCircle,
 ChevronDown
 } from "lucide-react";
 import Link from "next/link";
@@ -93,7 +93,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick }) 
       onClick={onClick}
     >
       <div className="flex items-start gap-4">
-        <HelpCircle className="text-primary w-6 h-6 mt-1 flex-shrink-0" />
+        {/* <HelpCircle className="text-primary w-6 h-6 mt-1 flex-shrink-0" /> */}
         <div className="flex-1">
           <div className="flex justify-between items-center">
             <h3 className="text-lg font-semibold text-balance">{question}</h3>

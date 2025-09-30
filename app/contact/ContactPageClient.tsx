@@ -98,35 +98,36 @@ export default function ContactPageClient() {
   ]
 
   const contactMethods = [
-    {
-      icon: Phone,
-      title: "Call Us",
-      description: "Speak directly with our team",
-      value: "+91 73032 28181",
-      action: "+91 73032 28181",
-    },
-    {
-      icon: Mail,
-      title: "Email Us",
-      description: "Send us a detailed message",
-      value: "info@kundkundit.com",
-      action: "info@kundkundit.com",
-    },
-    {
-      icon: MessageSquare,
-      title: "Whatsapp Chat",
-      description: "Chat with us in real-time",
-      value: "Available 8 AM - 5 PM",
-      action: "#",
-    },
-    {
-      icon: Calendar,
-      title: "Schedule a Call",
-      description: "Book a free consultation",
-      value: "30-minute free session",
-      action: "#",
-    },
-  ]
+  {
+    icon: Phone,
+    title: "Call Us",
+    description: "Speak directly with our team",
+    value: "+91 73032 28181",
+    action: "tel:+917303228181", // ✅ opens phone dialer
+  },
+  {
+    icon: Mail,
+    title: "Email Us",
+    description: "Send us a detailed message",
+    value: "info@kundkundit.com",
+    action: "mailto:info@kundkundit.com", // ✅ opens mail client
+  },
+  {
+    icon: MessageSquare,
+    title: "WhatsApp Chat",
+    description: "Chat with us in real-time",
+    value: "Available 8 AM - 5 PM",
+    action: "https://wa.me/917303228181", // ✅ opens WhatsApp chat
+  },
+  {
+    icon: Calendar,
+    title: "Schedule a Call",
+    description: "Book a free consultation",
+    value: "30-minute free session",
+    action: "https://calendly.com/kundkundit/30min", // ✅ replace with your Calendly/booking link
+  },
+]
+
 
   if (isSubmitted) {
     return (
@@ -183,29 +184,46 @@ export default function ContactPageClient() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {contactMethods.map((method, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                    <method.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">{method.title}</CardTitle>
-                  <CardDescription>{method.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="font-medium text-primary mb-4">{method.value}</div>
-                  <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-                    <Link href={method.action}>Contact Now</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+     <section className="py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {contactMethods.map((method, index) => (
+            <Card
+              key={index}
+              className="group hover:shadow-lg transition-all duration-300 text-center"
+            >
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                  <method.icon className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">{method.title}</CardTitle>
+                <CardDescription>{method.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {/* ✅ Make the value clickable */}
+                <div className="font-medium text-primary mb-4">
+                  <a href={method.action} target="_blank" rel="noopener noreferrer">
+                    {method.value}
+                  </a>
+                </div>
+
+                {/* ✅ Contact Now button */}
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="w-full bg-transparent"
+                >
+                  <Link href={method.action} target="_blank" rel="noopener noreferrer">
+                    Contact Now
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Contact Form & Info */}
       <section className="py-20 bg-muted/30">

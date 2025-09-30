@@ -1,24 +1,30 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   const services = [
-    { name: "AI & Machine Learning", href: "/services#ai" },
+    { name: "AI/ML", href: "/services#ai" },
     { name: "Web Development", href: "/services#web" },
-    { name: "Mobile Apps", href: "/services#mobile" },
-    { name: "Cloud Solutions", href: "/services#cloud" },
-    { name: "UI/UX Design", href: "/services#design" },
-    { name: "QA Automation", href: "/services#qa" },
+    { name: "Mobile App Development", href: "/services#mobile" },
+    { name: "Product Development", href: "/services#product-dev" },
+    { name: "Enterprise Software", href: "/services#enterprise-software" },
+    { name: "SaaS Product", href: "/services#saas-product" },
   ]
 
-  const industries = [
-    { name: "Healthcare", href: "/industries#healthcare" },
-    { name: "Real Estate", href: "/industries#realestate" },
-    { name: "Startups", href: "/industries#startups" },
-    { name: "Enterprises", href: "/industries#enterprises" },
-  ]
+
+  const footerIndustries = [
+  { id: "healthcare", title: "Healthcare" },
+  { id: "realestate", title: "Real Estate" },
+  { id: "startups", title: "Startups" },
+  { id: "manufacturing", title: "Manufacturing" },
+  { id: "logistics", title: "Logistics" },
+  { id: "edtech", title: "EdTech" },
+  { id: "fintech", title: "FinTech" },
+  { id: "tech-startups", title: "Technology Startups" },
+]
 
   const company = [
     { name: "About Us", href: "/about" },
@@ -34,12 +40,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">F</span>
-              </div>
-              <span className="font-bold text-xl text-foreground">KundKund IT</span>
-            </Link>
+             {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="relative h-20 w-42">
+              <Image src="/kundkund-IT-Logos-1.png" alt="Logo" fill style={{ objectFit: "contain" }} />
+            </div>
+          </Link>
             <p className="text-muted-foreground mb-4 max-w-md">
               We build fresh, scalable software solutions that drive innovation and growth for businesses across
               healthcare, real estate, and enterprise sectors.
@@ -78,22 +84,21 @@ export function Footer() {
           </div>
 
           {/* Industries */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Industries</h3>
-            <ul className="space-y-2">
-              {industries.map((industry) => (
-                <li key={industry.name}>
-                  <Link
-                    href={industry.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                  >
-                    {industry.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+           <div>
+      <h3 className="text-sm font-semibold mb-2">Industries</h3>
+      <ul className="space-y-1">
+        {footerIndustries.map((industry) => (
+          <li key={industry.id}>
+            <Link
+              href={`/industries#${industry.id}`}
+              className="text-muted-foreground hover:text-primary transition-colors text-sm"
+            >
+              {industry.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
           {/* Company */}
           <div>
             <h3 className="font-semibold text-foreground mb-4">Company</h3>
@@ -128,24 +133,39 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-          <p className="text-muted-foreground text-sm">© 2025 KundKund IT. All rights reserved.</p>
-          <div className="flex items-center space-x-4">
-            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Facebook className="h-5 w-5" />
-            </Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Twitter className="h-5 w-5" />
-            </Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Github className="h-5 w-5" />
-            </Link>
-          </div>
-        </div>
+{/* Bottom Bar */}
+<div className="mt-8 pt-8 border-t flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+  <p className="text-muted-foreground text-sm">
+    © 2025 KundKund IT. All rights reserved.
+  </p>
+  <div className="flex items-center space-x-4">
+    <a
+      href="https://www.facebook.com/kundkundit"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-muted-foreground hover:text-primary transition-colors"
+    >
+      <Facebook className="h-5 w-5" />
+    </a>
+    <a
+      href="https://www.instagram.com/kundkundit/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-muted-foreground hover:text-primary transition-colors"
+    >
+      <Instagram className="h-5 w-5" />
+    </a>
+    <a
+      href="https://www.linkedin.com/company/kundkund-it/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-muted-foreground hover:text-primary transition-colors"
+    >
+      <Linkedin className="h-5 w-5" />
+    </a>
+  </div>
+</div>
+
       </div>
     </footer>
   )
