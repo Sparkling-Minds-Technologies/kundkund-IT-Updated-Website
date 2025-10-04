@@ -28,7 +28,7 @@ export async function POST(req: Request) {
       })
     }
 
-    // ✅ Gmail transporter with App Password + TLS fix
+    //  Gmail transporter with App Password + TLS fix
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
         pass: process.env.SMTP_PASS, // 16-digit App Password
       },
       tls: {
-        rejectUnauthorized: false, // 🔑 bypass self-signed cert issue
+        rejectUnauthorized: false, //  bypass self-signed cert issue
       },
       logger: true, // debug logs
       debug: true,
@@ -66,7 +66,7 @@ ${message}
 
     return NextResponse.json({ success: true })
   } catch (err: any) {
-    console.error("❌ Error in /api/apply:", err?.message || err)
+    console.error(" Error in /api/apply:", err?.message || err)
     return NextResponse.json(
       { error: "Failed to submit application", details: err?.message || err },
       { status: 500 }

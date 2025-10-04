@@ -219,14 +219,15 @@ export default function AboutPage() {
         </div>
       </section>
 
+
       {/* Mission & Vision */}
-     {/* Mission & Vision */}
 <section className="py-20 relative overflow-hidden">
+
   {/* Background Gradient */}
   <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 pointer-events-none" />
-
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      
       {/* Mission Card */}
       <div className="group relative">
         <Card className="bg-white/70 dark:bg-card/40 backdrop-blur-lg border border-primary/20 shadow-lg rounded-2xl p-6 transform transition duration-500 hover:scale-105 hover:shadow-2xl">

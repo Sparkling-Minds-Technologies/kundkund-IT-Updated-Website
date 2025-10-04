@@ -129,7 +129,7 @@ const blogPosts = [
     readTime: "6 min read",
     category: "Software Development",
     tags: ["Software Development", "AI", "Cloud", "Low-Code"],
-    image: "/future-software-development.jpg",
+    image: "/Gemini_future-of-software-development.png",
     featured: false,
   },
   {

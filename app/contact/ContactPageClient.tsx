@@ -103,28 +103,28 @@ export default function ContactPageClient() {
     title: "Call Us",
     description: "Speak directly with our team",
     value: "+91 73032 28181",
-    action: "tel:+917303228181", // ✅ opens phone dialer
+    action: "tel:+917303228181", // opens phone dialer
   },
   {
     icon: Mail,
     title: "Email Us",
     description: "Send us a detailed message",
     value: "info@kundkundit.com",
-    action: "mailto:info@kundkundit.com", // ✅ opens mail client
+    action: "mailto:info@kundkundit.com", // opens mail client
   },
   {
     icon: MessageSquare,
     title: "WhatsApp Chat",
     description: "Chat with us in real-time",
     value: "Available 8 AM - 5 PM",
-    action: "https://wa.me/917303228181", // ✅ opens WhatsApp chat
+    action: "https://wa.me/917303228181", //  opens WhatsApp chat
   },
   {
     icon: Calendar,
     title: "Schedule a Call",
     description: "Book a free consultation",
     value: "30-minute free session",
-    action: "https://calendly.com/kundkundit/30min", // ✅ replace with your Calendly/booking link
+    action: "https://calendly.com/kundkundit/30min", //  replace with your Calendly/booking link
   },
 ]
 
@@ -200,14 +200,14 @@ export default function ContactPageClient() {
                 <CardDescription>{method.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                {/* ✅ Make the value clickable */}
+                {/* Make the value clickable */}
                 <div className="font-medium text-primary mb-4">
                   <a href={method.action} target="_blank" rel="noopener noreferrer">
                     {method.value}
                   </a>
                 </div>
 
-                {/* ✅ Contact Now button */}
+                {/* Contact Now button */}
                 <Button
                   asChild
                   variant="outline"

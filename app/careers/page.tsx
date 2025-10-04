@@ -99,7 +99,7 @@ export default function CareersPage() {
             Be a part of shaping the <span className="text-primary">future</span>
           </h1>
           <p className="mt-4 text-lg text-slate-600">
-            Explore career opportunities at KundKund and help build software that matters.
+            Explore career opportunities at KundKundIT and help build software that matters.
           </p>
 
           {/* Search & Location filter */}
@@ -230,7 +230,6 @@ export default function CareersPage() {
       </section>
 
       {/* CTA */}
-     {/* CTA */}
 <section className="py-20">
   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
     <Card className="bg-primary text-primary-foreground border-0">

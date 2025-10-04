@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     });
 
     // -----------------------
-    // 📩 Message to Admin
+    // Message to Admin
     // -----------------------
     const adminMessage = `
 New Free Consultation Request:
